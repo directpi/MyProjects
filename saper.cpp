@@ -27,7 +27,7 @@ int main() {
                 if (i != 0 && matrix[i - 1][j] == -1) {
                     ++counter;
                 }
-                if (i != 0 && j != n && matrix[i - 1][j + 1] == -1) {
+                if (i != 0 && j + 1 != n && matrix[i - 1][j + 1] == -1) {
                     ++counter;
                 }
                 if (j != 0 && matrix[i][j - 1] == -1) {
@@ -42,7 +42,7 @@ int main() {
                 if (i != m - 1 && matrix[i + 1][j] == -1) {
                     ++counter;
                 }
-                if (i != m - 1 && j != n && matrix[i + 1][j + 1] == -1) {
+                if (i != m - 1 && j+1 != n && matrix[i + 1][j + 1] == -1) {
                     ++counter;
                 }
                 matrix[i][j] = counter;
@@ -52,10 +52,11 @@ int main() {
     for (size_t i = 0; i != m; ++i) {
         for (size_t j = 0; j != n; ++j) {
             if (matrix[i][j] == -1) {
-                std::cout << "*"
-                          << " ";
+                std::cout << "*";
+                if (j+1 != n) std::cout << " ";
             } else {
-                std::cout << matrix[i][j] << " ";
+                std::cout << matrix[i][j];
+                if (j+1 != n) std::cout << " ";
             }
         }
         std::cout << "\n";
