@@ -2,35 +2,26 @@
 #include <stdlib.h>
 char *input(void);
 
-int main(void)
-{
-
+int main(void) {
     char *s = input();
-    if (s)
-    {
+    if (s) {
         printf("%s", s);
-    }
-    else
-    {
+    } else {
         printf("NULL\n");
     }
-    if (s != NULL)
-    {
+    if (s != NULL) {
         free(s);
     }
     return 0;
 }
 
-char *input(void)
-{
+char *input(void) {
     char *s = NULL;
     char c;
     int counter = 0;
-    do
-    {
+    do {
         scanf("%c", &c);
-        if (c != '\n')
-        {
+        if (c != '\n') {
             ++counter;
             s = s ? realloc(s, counter * sizeof(char)) : malloc(counter * sizeof(char));
             s[counter - 1] = c;

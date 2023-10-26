@@ -32,7 +32,7 @@ int *input(int *counter)
     {
         if (scanf("%d%c", &m, &c) && c == 32)
         {
-            if (c != '\n' && m > 0 && c == 32) //&& (c > 32 && c < 127)
+            if ( m > 0 ) //&& (c > 32 && c < 127)
             {
                 ++*counter;
                 arr = arr ? realloc(arr, *counter * sizeof(int)) : malloc(*counter * sizeof(int));
@@ -40,8 +40,8 @@ int *input(int *counter)
             }
             else if (m < 0)
             {
-                break;
                 m = -1;
+                break;
             }
         }
         else
@@ -56,7 +56,7 @@ int *input(int *counter)
             arr[*counter] = m;
             arr = arr ? realloc(arr, *counter * sizeof(int)) : arr;
         }
-        else if (*counter == 0)
+        else 
         {
             *counter = 1;
             arr = malloc(*counter * sizeof(int));
