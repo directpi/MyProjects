@@ -10,7 +10,7 @@ int main() {
         // if (str.empty()) {
         //     break;
         // } else {
-            strings.push_back(str);
+        strings.push_back(str);
         // }
     }
     std::sort(strings.rbegin(), strings.rend());

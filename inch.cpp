@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main(){
+int main() {
     double sm;
 
     std::cin >> sm;

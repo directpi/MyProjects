@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string>
- 
+
 void Append(std::string& res, char c) {
     if (res.back() != c) {
         res.push_back(c);
     }
 }
- 
+
 std::string Soundex(const std::string& word) {
     std::string res;
     res.push_back(word[0]);
@@ -51,7 +51,7 @@ std::string Soundex(const std::string& word) {
     res.resize(4);
     return res;
 }
- 
+
 int main() {
     std::string word;
     std::cin >> word;
