@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define N 1000
-int main(void)
-{
+int main(void) {
     char buf[N + 1] = "", *p1 = buf, *p2;
 
     scanf("%1000[^\n]", buf);

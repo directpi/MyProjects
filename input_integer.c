@@ -2,70 +2,52 @@
 #include <stdlib.h>
 int *input(int *);
 
-int main(void)
-{
+int main(void) {
     int counter = 0;
     int *arr = input(&counter);
 
-    if (arr != NULL)
-    {
-        for (int i = 0; i <= counter; i++)
-        {
+    if (arr != NULL) {
+        for (int i = 0; i <= counter; i++) {
             printf("%d_", arr[i]);
         }
         free(arr);
-    }
-    else
-    {
+    } else {
         printf("n/a");
     }
     return 0;
 }
 
-int *input(int *counter)
-{
+int *input(int *counter) {
     int *arr = NULL;
     char c;
 
     int m = 0;
-    do
-    {
-        if (scanf("%d%c", &m, &c) && c == 32)
-        {
-            if (c != '\n' && m > 0 && c == 32) //&& (c > 32 && c < 127)
+    do {
+        if (scanf("%d%c", &m, &c) && c == 32) {
+            if (c != '\n' && m > 0 && c == 32)  //&& (c > 32 && c < 127)
             {
                 ++*counter;
                 arr = arr ? realloc(arr, *counter * sizeof(int)) : malloc(*counter * sizeof(int));
                 arr[*counter - 1] = m;
-            }
-            else if (m < 0)
-            {
+            } else if (m < 0) {
                 break;
                 m = -1;
             }
-        }
-        else
-        {
+        } else {
             break;
         }
     } while (c != '\n');
-    if ((m > 0) && (c == '\n'))
-    {
-        if (*counter != 0)
-        {
+    if ((m > 0) && (c == '\n')) {
+        if (*counter != 0) {
             arr[*counter] = m;
             arr = arr ? realloc(arr, *counter * sizeof(int)) : arr;
-        }
-        else if (*counter == 0)
-        {
+        } else if (*counter == 0) {
             *counter = 1;
             arr = malloc(*counter * sizeof(int));
             arr[*counter - 1] = m;
             *counter = 0;
         }
-    }
-    else
-    {
+    } else {
         return 0;
     }
     return arr;
