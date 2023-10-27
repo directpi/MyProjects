@@ -1,4 +1,5 @@
 clang-format -i
+clang++ -std=c++20 -Wall -Wextra -Werror
 cppcheck --enable=all --suppress=missingIncludeSystem
 valgrind --tool=memcheck --leak-check=yes  ./
 
