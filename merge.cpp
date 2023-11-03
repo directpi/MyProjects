@@ -19,20 +19,28 @@ int main() {
     }
     ar2.resize(m);
     std::vector<int> res(ar1.size() + ar2.size());
-    int index1 = 0, index2 = 0;
+    size_t index1 = 0, index2 = 0;
     for (size_t i = 0; i != res.size(); ++i) {
-        if (ar1[index1] < ar2[index2]) {
-            res[i] = ar1[i];
+        if (ar1[index1] < ar2[index2] && index1 < ar1.size()) {
+            res[i] = ar1[index1];
             ++index1;
-        } else if (ar1[index1] > ar2[index2]) {
-            res[i] = ar2[i];
+        } else if (index2 < ar2.size() && index1 >= ar1.size()) {
+            res[i] = ar2[index2];
             index2++;
-        } else {
-            res[i] = ar1[i];
-            ++index1;
+        } else if (ar1[index1] > ar2[index2] && index2 < ar2.size()) {
+            res[i] = ar2[index2];
+            index2++;
+        } else if (index1 < ar1.size() && index2 >= ar2.size()) {
+            res[i] = ar1[index1];
+            index1++;
+        } else if (ar1[index1] == ar2[index2]) {
+            res[i] = ar1[index1];
+            if (index1 < ar1.size()) {
+                ++index1;
+            }
         }
     }
-    for (size_t i = 0; i < res.size(); ++i) {
+    for (size_t i = 0; i != res.size(); ++i) {
         std::cout << res[i] << " ";
     }
 }
