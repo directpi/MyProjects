@@ -2,19 +2,19 @@
 #include <vector>
 using namespace std;
 int main() {
-    int n;
+    long n;
     cin >> n;
     vector<size_t> a(n + 1);
     vector<size_t> b(n + 1);
     vector<size_t> c;
     size_t i = 1, j = 1;
 
-    for (int k = 0; k <= n; ++k) {
+    for (size_t k = 0; k <= n; ++k) {
         a[k] = k * k;
         b[k] = k * k * k;
     }
-    int count = 1;
-    int d = 1;
+    size_t count = 1;
+    size_t d = 1;
     c.push_back(1);
     while (count < n) {
         if (i * i <= j * j * j) {
@@ -32,6 +32,6 @@ int main() {
             ++j;
         }
     }
-    int tmp = c.back();
+    size_t tmp = c.back();
     cout << tmp;
 }
