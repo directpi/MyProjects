@@ -8,7 +8,7 @@ int main() {
     string str;
     int q;
     size_t p = pow(10, 9) + 7;
-    int x_ = 10;  // 257
+    int x_ = 257;  // 10
     getline(cin, str);
     str = " " + str;
     int n = str.length();
