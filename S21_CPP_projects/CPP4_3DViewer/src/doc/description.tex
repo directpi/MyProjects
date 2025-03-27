@@ -1,0 +1,48 @@
+\documentclass{article}
+
+% Кодировка и локализация
+\usepackage[utf8]{inputenc} % Кодировка UTF-8
+\usepackage[T1]{fontenc}    % Кодировка шрифтов
+\usepackage[russian,english]{babel} % Поддержка русского и английского языков
+\usepackage{lmodern} % Поддержка современных шрифтов
+
+% Для отображения кода и цветов
+\usepackage{listings} % Пакет для отображения кода
+\usepackage{xcolor}   % Цвета
+
+% Установка шрифтов Times New Roman и Helvetica
+% \renewcommand{\rmdefault}{ptm} % Times New Roman
+% \renewcommand{\sfdefault}{phv} % Helvetica
+
+% Настройка подсветки для CPP-кода
+\lstset{
+  language=C++,                    % Язык программирования
+  basicstyle=\ttfamily\small,      % Базовый стиль
+  keywordstyle=\color{blue},       % Цвет ключевых слов
+  commentstyle=\color{gray},       % Цвет комментариев
+  stringstyle=\color{green},       % Цвет строк
+  numbers=left,                    % Нумерация строк
+  numberstyle=\tiny\color{gray},   % Стиль нумерации
+  stepnumber=1,                    % Шаг нумерации
+  breaklines=true,                 % Перенос строк
+  frame=single,                    % Рамка вокруг кода
+  tabsize=4,                       % Размер табуляции
+  showstringspaces=false           % Не отображать пробелы в строках
+}
+
+% Заголовок документа
+\title{3D\_Viewer v2.0 TKP\_JD}
+\author{} % Можно добавить автора
+\date{December 2024} % Дата документа
+
+\begin{document}
+
+\maketitle
+
+\selectlanguage{english} % Язык для содержания
+
+\section{Viewer}
+\subsection{Description}
+\section{Introduction}
+
+The program for viewing 3D models in wireframe form (3D Viewer) is developed in the CPP language conforming to the C11 standard using the gcc compiler. The program implements a graphical user interface
