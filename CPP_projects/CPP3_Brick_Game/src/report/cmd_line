@@ -1,0 +1,1 @@
+genhtml -o report s_test.info -rc lcov_branch_coverage=1

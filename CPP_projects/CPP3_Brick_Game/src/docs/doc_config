@@ -1,0 +1,84 @@
+# Doxyfile 1.9.8
+
+DOXYFILE_ENCODING      = UTF-8
+
+
+PROJECT_NAME           = "Brick_\Game_\v2_0"
+
+
+PROJECT_VERSION         = 1.0
+
+
+PROJECT_BRIEF          = "Documentation of project Brick Game v2.0 C and CPP languages with Qt"
+
+# With the PROJECT_LOGO tag one can specify a logo or an icon that is included
+# in the documentation. The maximum height of the logo should not exceed 55
+# pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
+# the logo to the output directory.
+
+PROJECT_AUTHOR         = "directpi"
+
+OUTPUT_DIRECTORY       = docs
+
+
+OUTPUT_LANGUAGE        = English
+
+RECURSIVE              = YES
+
+INPUT                  = brick_game
+
+FILE_PATTERNS          = *.c *.h *.cpp *.hpp
+
+REPEAT_BRIEF           = YES
+
+# This tag implements a quasi-intelligent brief description abbreviator that is
+# used to form the text in various listings. Each string in this list, if found
+# as the leading text of the brief description, will be stripped from the text
+# and the result, after processing the whole list, is used as the annotated
+# text. Otherwise, the brief description is used as-is. If left blank, the
+# following values are used ($name is automatically replaced with the name of
+# the entity):The $name class, The $name widget, The $name file, is, provides,
+# specifies, contains, represents, a, an and the.
+
+ABBREVIATE_BRIEF       = "The $name class" \
+                         "The $name widget" \
+                         "The $name file" \
+                         is \
+                         provides \
+                         specifies \
+                         contains \
+                         represents \
+                         a \
+                         an \
+                         the
+
+
+FULL_PATH_NAMES        = YES
+
+
+SHORT_NAMES            = NO
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+
+
+MARKDOWN_SUPPORT       = YES
+
+
+MARKDOWN_ID_STYLE      = DOXYGEN
+
+
+AUTOLINK_SUPPORT       = YES
+
+
+GENERATE_LEGEND        = YES
+
+GENERATE_LATEX        = YES
+LATEX_OUTPUT           = latex
+
+LATEX_UNDERLINE       = YES
+LATEX_TITLE            = "Brick Game v2.0 Project Documentation"
+LATEX_AUTHOR           = "directpi"
+LATEX_DATE             = "\\today"
+
+GENERATE_TREEVIEW      = YES
+GENERATE_HTML          = YES
