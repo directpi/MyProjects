@@ -1,4 +1,4 @@
-[К оглавлению](../../README.md)
+[К оглавлению](../README.md)
 
 # Project Team
 
