@@ -1,0 +1,180 @@
+{
+  "userHero": {
+    "health": {
+      "maxHealth": 100,
+      "currentHealth": 48,
+      "dead": false
+    },
+    "speed": 1,
+    "dexterity": 10,
+    "strength": 15,
+    "skin": "h",
+    "heroName": "asd",
+    "backpack": {
+      "items": {
+        "Weapon": [],
+        "Elixir": [
+          {
+            "@type": "Elixir",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 0,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 2,
+            "strength": 0,
+            "skin": "I",
+            "price": 0,
+            "type": "DEXTERITY",
+            "duration": 13
+          },
+          {
+            "@type": "Elixir",
+            "health": {
+              "maxHealth": 2,
+              "currentHealth": 0,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0,
+            "type": "HEALTH",
+            "duration": 8
+          },
+          {
+            "@type": "Elixir",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 0,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 4,
+            "skin": "I",
+            "price": 0,
+            "type": "STRENGTH",
+            "duration": 14
+          },
+          {
+            "@type": "Elixir",
+            "health": {
+              "maxHealth": 2,
+              "currentHealth": 0,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0,
+            "type": "HEALTH",
+            "duration": 3
+          }
+        ],
+        "Food": [
+          {
+            "@type": "Food",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 8,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0
+          },
+          {
+            "@type": "Food",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 3,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0
+          },
+          {
+            "@type": "Food",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 1,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0
+          },
+          {
+            "@type": "Food",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 4,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0
+          },
+          {
+            "@type": "Food",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 8,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0
+          },
+          {
+            "@type": "Food",
+            "health": {
+              "maxHealth": 0,
+              "currentHealth": 7,
+              "dead": false
+            },
+            "speed": 0,
+            "dexterity": 0,
+            "strength": 0,
+            "skin": "I",
+            "price": 0
+          }
+        ]
+      }
+    },
+    "treasure": 636,
+    "activeElixir": [],
+    "equippedWeapon": {
+      "@type": "Weapon",
+      "health": {
+        "maxHealth": 0,
+        "currentHealth": 0,
+        "dead": false
+      },
+      "speed": 0,
+      "dexterity": 0,
+      "strength": 0,
+      "skin": "I",
+      "price": 0,
+      "weaponType": "DAGGER",
+      "modifier": 6
+    },
+    "asleep": false
+  },
+  "dungenLvl": 2
+}
