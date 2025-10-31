@@ -1,0 +1,921 @@
+{
+	"info": {
+		"_postman_id": "a05f5f5f-38a1-43ad-a893-c4adc2780391",
+		"name": "TicTacToe_JWT_API_Complete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43270600"
+	},
+	"item": [
+		{
+			"name": "1. Регистрация - POST /auth/register",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After-response script для регистрации",
+							"if (pm.response.code === 200) {",
+							"    try {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    const playerId = responseData.userId;",
+							"",
+							"    // ПОЛУЧАЕМ username и password ИЗ ЗАПРОСА",
+							"    const requestBody = JSON.parse(pm.request.body.raw);",
+							"    const username = requestBody.login;",
+							"    const password = requestBody.password;",
+							"",
+							"    // Сохраняем текущие значения в Environment",
+							"    pm.environment.set(\"playerId\", playerId);",
+							"    pm.environment.set(\"username\", username);",
+							"    pm.environment.set(\"password\", password);",
+							"    ",
+							"",
+							"    console.log(\"Регистрация успешна\");",
+							"    console.log(\"Player ID сохранен в Environment:\", playerId);",
+							"    console.log(\"Текущий игрок:\", pm.environment.get(\"username\"));",
+							"    ",
+							"    // === Сохраняем пароль в Collection Variable как объект ===",
+							"    let passwordsMap = pm.collectionVariables.get(\"passwordsMap\");",
+							"        passwordsMap = passwordsMap ? JSON.parse(passwordsMap) : {};",
+							"        passwordsMap[playerId] = password;",
+							"        pm.collectionVariables.set(\"passwordsMap\", JSON.stringify(passwordsMap));",
+							"        console.log(`✅ Пароль сохранен в passwordsMap для игрока : ${playerId}`);",
+							"",
+							"    // Автопереход к логину",
+							"    pm.execution.setNextRequest(\"2. Авторизация - POST /auth/login\");",
+							"    if (pm.response.code === 200) {",
+							"        console.log(\"Переход к логину и авторизация выполнены автоматически\");",
+							"    }",
+							"    } catch (error) {",
+							"        console.log(\"❌ Ошибка обработки регистрации:\", error.message);",
+							"    }",
+							"} else {",
+							"    console.log(\"❌ Ошибка регистрации:\", pm.response.code, pm.response.text());",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"login\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/auth/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Авторизация - POST /auth/login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request Script для 2. Авторизация - POST /auth/login",
+							"const username = pm.environment.get(\"username\");",
+							"const password = pm.environment.get(\"password\");",
+							"const playerId = pm.environment.get(\"playerId\");",
+							"",
+							"console.log(\"Данные для авторизации:\");",
+							"console.log(\"Username:\", username);",
+							"console.log(\"PlayerId:\", playerId || \"(пустой)\");",
+							"",
+							"// Удаляем старые заголовки",
+							"pm.request.headers.remove(\"Authorization\");",
+							"pm.request.headers.remove(\"X-Player-Id\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для авторизации",
+							"if (pm.response.code === 200) {",
+							"    const jwtResponse = pm.response.json();",
+							"    ",
+							"    // Сохраняем JWT токены в коллекционные переменные",
+							"    pm.collectionVariables.set(\"accessToken\", jwtResponse.accessToken);",
+							"    pm.collectionVariables.set(\"refreshToken\", jwtResponse.refreshToken);",
+							"    ",
+							"    console.log(\"✅ Авторизация успешна\");",
+							"    console.log(\"Access Token получен\");",
+							"    ",
+							"    // Сохраняем playerId из environment (как было ранее)",
+							"    const playerId = pm.environment.get(\"playerId\");",
+							"    if (playerId) {",
+							"        pm.collectionVariables.set(\"playerId\", playerId);",
+							"        console.log(\"Player ID сохранен:\", playerId);",
+							"    }",
+							"} else {",
+							"    console.log(\"Ошибка авторизации:\", pm.response.text());",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"login\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Проверка авторизации - GET /auth/check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для \"3. Проверка авторизации - GET /auth/check\"\r",
+							"if (pm.response.code === 200) {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    // Сохраняем подтвержденные данные из JWT\r",
+							"    pm.environment.set(\"playerId\", responseData.userId);\r",
+							"    pm.environment.set(\"username\", responseData.username);\r",
+							"    \r",
+							"    console.log(\"✅ JWT токен валиден\");\r",
+							"    console.log(\"Player ID подтвержден:\", responseData.userId);\r",
+							"    console.log(\"Username подтвержден:\", responseData.username);\r",
+							"    \r",
+							"} else if (pm.response.code === 401) {\r",
+							"    console.log(\"❌ JWT токен невалиден или просрочен\");\r",
+							"    \r",
+							"    // Очищаем токены и данные авторизации\r",
+							"    pm.collectionVariables.set(\"accessToken\", \"\");\r",
+							"    pm.collectionVariables.set(\"refreshToken\", \"\");\r",
+							"    pm.environment.set(\"playerId\", \"\");\r",
+							"    \r",
+							"    console.log(\"🔄 Требуется повторная авторизация\");\r",
+							"    \r",
+							"} else {\r",
+							"    console.log(\"❌ Ошибка проверки авторизации:\", pm.response.code, pm.response.text());\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:8443/auth/check",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"auth",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Выход - POST /auth/logout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request Script для выхода",
+							"// Автоматически добавляем Bearer token",
+							"const accessToken = pm.collectionVariables.get(\"accessToken\");",
+							"if (accessToken) {",
+							"    pm.request.headers.upsert({",
+							"        key: \"Authorization\",",
+							"        value: \"Bearer \" + accessToken",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для выхода",
+							"if (pm.response.code === 200) {",
+							"    console.log(\"✅ Выход выполнен успешно\");",
+							"    ",
+							"    // Очищаем JWT токены",
+							"    pm.collectionVariables.set(\"accessToken\", \"\");",
+							"    pm.collectionVariables.set(\"refreshToken\", \"\");",
+							"    ",
+							"    // Сохраняем старую логику очистки (как было)",
+							"    pm.collectionVariables.unset(\"playerId\");",
+							"    pm.collectionVariables.unset(\"encodedCredentials\");",
+							"    pm.environment.unset(\"currentPlayerId\");",
+							"    pm.environment.unset(\"currentUsername\");",
+							"    ",
+							"    console.log(\"Все данные авторизации очищены\");",
+							"} else {",
+							"    console.log(\"❌ Ошибка при выходе:\", pm.response.text());",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/auth/logout",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Создание игры (с компьютером) - POST /game/create?vsComputer=true",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request Script для создания игры",
+							"// Автоматически добавляем Bearer token",
+							"const accessToken = pm.collectionVariables.get(\"accessToken\");",
+							"if (accessToken) {",
+							"    pm.request.headers.upsert({",
+							"        key: \"Authorization\",",
+							"        value: \"Bearer \" + accessToken",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After Response Script для создания игры",
+							"if (pm.response.code === 200) {",
+							"    const game = pm.response.json();",
+							"",
+							"    // Сохраняем ID игры и версию в окружение (как было)",
+							"    pm.environment.set(\"currentGameId\", game.id);",
+							"    pm.environment.set(\"currentVersion\", game.version || 0);",
+							"    pm.environment.set(\"currentGameState\", game.state);",
+							"",
+							"    // Сохраняем ID игрока (человека) - как было",
+							"    pm.environment.set(\"player1Id\", game.player1Id);",
+							"    pm.environment.set(\"playerId\", game.player1Id);",
+							"",
+							"    // Загружаем данные игрока из passwordsMap - как было",
+							"    let passwordsMap = pm.collectionVariables.get(\"passwordsMap\");",
+							"    passwordsMap = passwordsMap ? JSON.parse(passwordsMap) : {};",
+							"",
+							"    if (passwordsMap[game.player1Id]) {",
+							"        const playerData = passwordsMap[game.player1Id];",
+							"        pm.environment.set(\"player1Username\", playerData.username);",
+							"        pm.environment.set(\"player1Password\", playerData.password);",
+							"        pm.environment.set(\"username\", playerData.username);",
+							"        pm.environment.set(\"password\", playerData.password);",
+							"    }",
+							"",
+							"    console.log(\"🎮 Игра создана успешно:\");",
+							"    console.log(\"   gameId:\", game.id);",
+							"    console.log(\"   Текущая версия:\", game.version || 0);",
+							"    console.log(\"   Состояние игры:\", game.state);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8443/game/create?vsComputer=true",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"create"
+					],
+					"query": [
+						{
+							"key": "vsComputer",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6. Создание игры (с игроком) - POST /game/create?vsComputer=false",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для создания игры с игроком",
+							"if (pm.response.code === 200) {",
+							"    const game = pm.response.json();",
+							"    pm.collectionVariables.set(\"gameId\", game.id);",
+							"    pm.environment.set(\"currentGameId\", game.id);",
+							"    pm.collectionVariables.set(\"currentVersion\", game.version || 0);",
+							"    pm.environment.set(\"currentGameState\", game.state);",
+							"    console.log(\"Игра создана:\", game.id);",
+							"    console.log(\"Текущая версия:\", game.version || 0);",
+							"    console.log(\"Состояние игры:\", game.state);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8443/game/create?vsComputer=false",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"create"
+					],
+					"query": [
+						{
+							"key": "vsComputer",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Получение доступных игр - GET /game/available",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для получения доступных игр",
+							"if (pm.response.code === 200) {",
+							"    const availableGames = pm.response.json();",
+							"    const currentPlayerId = pm.environment.get(\"currentPlayerId\");",
+							"    ",
+							"    console.log(\"Текущий Player ID:\", currentPlayerId);",
+							"    console.log(\"Все доступные игры:\", JSON.stringify(availableGames, null, 2));",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/game/available",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"available"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8. Присоединение к игре - POST /game/join/{gameId}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для присоединения к игре",
+							"if (pm.response.code === 200) {",
+							"    const game = pm.response.json();",
+							"    console.log(\"✅ Присоединились к игре\");",
+							"    console.log(\"🔄 Новая версия:\", game.version);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:8443/game/join/{{currentGameId}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"join",
+						"{{currentGameId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9. Получение игры по ID - GET /game/{id}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response для получения игры по ID",
+							"if (pm.response.code === 200) {",
+							"    const game = pm.response.json();",
+							"    pm.collectionVariables.set(\"currentGameData\", JSON.stringify(game));",
+							"    pm.collectionVariables.set(\"currentVersion\", game.version || 1);",
+							"    pm.environment.set(\"currentGameState\", game.state);",
+							"",
+							"    console.log(\"Текущая версия игры:\", game.version || 1);",
+							"    console.log(\"Состояние игры:\", game.state);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/game/{{gameId}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"{{gameId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "10. Ход в игре - POST /game/move/{id}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// Pre-request Script для хода в игре",
+							"// Автоматически добавляем Bearer token",
+							"const accessToken = pm.collectionVariables.get(\"accessToken\");",
+							"if (accessToken) {",
+							"    pm.request.headers.upsert({",
+							"        key: \"Authorization\",",
+							"        value: \"Bearer \" + accessToken",
+							"    });",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After Response Script для хода в игре",
+							"if (pm.response.code === 200) {",
+							"    const game = pm.response.json();",
+							"    ",
+							"    // Обновляем состояние игры",
+							"    pm.collectionVariables.set(\"currentGameState\", game.state);",
+							"    pm.collectionVariables.set(\"vsComputer\", game.vsComputer);",
+							"    ",
+							"    // Обновляем версию",
+							"    let version = pm.collectionVariables.get(\"currentVersion\");",
+							"    version = (version === undefined || version === null) ? 1 : parseInt(version, 10);",
+							"    const nextVersion = version + 1;",
+							"    pm.collectionVariables.set(\"currentVersion\", nextVersion);",
+							"    ",
+							"    console.log(`✅ Ход сделан. Новая версия: ${nextVersion}, Состояние: ${game.state}`);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"board\": [\n    [0, 0, 0],\n    [0, 1, 0],\n    [0, 0, 0]\n  ],\n  \"version\": {{currentVersion}}\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/game/move/{{currentGameId}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"move",
+						"{{currentGameId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "11. Информация о пользователе - GET /user/me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/user/{{playerId}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"user",
+						"{{playerId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "12. Главная страница - GET /",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13. Обновление Access Token - POST /auth/refresh",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// After response script для обновления токена",
+							"if (pm.response.code === 200) {",
+							"    const jwtResponse = pm.response.json();",
+							"    ",
+							"    // Обновляем токены",
+							"    pm.collectionVariables.set(\"accessToken\", jwtResponse.accessToken);",
+							"    pm.collectionVariables.set(\"refreshToken\", jwtResponse.refreshToken);",
+							"    ",
+							"    console.log(\"✅ Access Token обновлен\");",
+							"} else {",
+							"    console.log(\"❌ Ошибка обновления токена:\", pm.response.text());",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/auth/refresh",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "14. Обновление Refresh Token - POST /auth/refresh",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "15. Получение истории завершенных игр по ID игрока - GET /game/history",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/game/history",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "16. Получение  таблицы лидеров - GET /game/leaderboard",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:8443/game/leaderboard",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"game",
+						"leaderboard"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					"// ============================================",
+					"// GLOBAL Pre-request Script (JWT + User Data)",
+					"// ============================================",
+					"",
+					"const currentPlayerId = pm.environment.get(\"playerId\");",
+					"",
+					"if (currentPlayerId && currentPlayerId !== \"COMPUTER\") {",
+					"    // Получаем данные всех игроков из passwordsMap",
+					"    const passwordsMapRaw = pm.collectionVariables.get(\"passwordsMap\");",
+					"    const passwordsMap = passwordsMapRaw ? JSON.parse(passwordsMapRaw) : {};",
+					"    ",
+					"    // Получаем данные текущего игрока",
+					"    const userData = passwordsMap[currentPlayerId];",
+					"    ",
+					"    if (userData) {",
+					"        // 1️⃣ Загружаем данные игрока в Environment",
+					"        pm.environment.set(\"username\", userData.username);",
+					"        pm.environment.set(\"password\", userData.password);",
+					"        ",
+					"        // 2️⃣ Устанавливаем JWT токены",
+					"        if (userData.accessToken) {",
+					"            pm.environment.set(\"accessToken\", userData.accessToken);",
+					"            ",
+					"            // 3️⃣ Устанавливаем Authorization заголовок",
+					"            pm.request.headers.upsert({",
+					"                key: \"Authorization\",",
+					"                value: \"Bearer \" + userData.accessToken",
+					"            });",
+					"            // console.log(\"🔑 Автозагрузка данных игрока:\", userData.username, \"(ID:\", currentPlayerId, \")\");",
+					"        } else {",
+					"            console.warn(\"⚠️ Access Token не найден для игрока:\", userData.username);",
+					"        }",
+					"        ",
+					"        if (userData.refreshToken) {",
+					"            pm.environment.set(\"refreshToken\", userData.refreshToken);",
+					"        }",
+					"    } else {",
+					"        console.warn(\"⚠️ Данные не найдены для игрока:\", currentPlayerId);",
+					"    }",
+					"} else if (currentPlayerId === \"COMPUTER\") {",
+					"    console.log(\"🤖 Текущий игрок: COMPUTER (без авторизации)\");",
+					"} else {",
+					"    console.log(\"⚠️ Global: playerId не установлен\");",
+					"}",
+					"// // Global pre-request script для JWT",
+					"// const currentPlayerId = pm.environment.get(\"playerId\");",
+					"",
+					"// if (currentPlayerId) {",
+					"//     // Получаем accessToken из passwordsMap для текущего пользователя",
+					"//     let passwordsMap = pm.collectionVariables.get(\"passwordsMap\");",
+					"//     passwordsMap = passwordsMap ? JSON.parse(passwordsMap) : {};",
+					"    ",
+					"//     if (passwordsMap[currentPlayerId] && passwordsMap[currentPlayerId].accessToken) {",
+					"//         const accessToken = passwordsMap[currentPlayerId].accessToken;",
+					"//         pm.request.headers.upsert({",
+					"//             key: \"Authorization\",",
+					"//             value: \"Bearer \" + accessToken",
+					"//         });",
+					"//         console.log(\"🔑 Global: Authorization header установлен для пользователя:\", currentPlayerId);",
+					"//     } else {",
+					"//         console.log(\"⚠️ Global: Access Token не найден для пользователя:\", currentPlayerId);",
+					"//     }",
+					"// } else {",
+					"//     console.log(\"⚠️ Global: playerId не установлен\");",
+					"// }"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "currentGameId",
+			"value": ""
+		},
+		{
+			"key": "currentGameState",
+			"value": ""
+		},
+		{
+			"key": "currentVersion",
+			"value": ""
+		},
+		{
+			"key": "vsComputer",
+			"value": ""
+		},
+		{
+			"key": "player1Id",
+			"value": ""
+		},
+		{
+			"key": "player2Id",
+			"value": ""
+		},
+		{
+			"key": "gamePlayer1Id",
+			"value": ""
+		},
+		{
+			"key": "passwordsMap",
+			"value": ""
+		},
+		{
+			"key": "currentGameData",
+			"value": ""
+		},
+		{
+			"key": "leaderboardData",
+			"value": ""
+		},
+		{
+			"key": "topPlayerLogin",
+			"value": ""
+		},
+		{
+			"key": "topPlayerWinRate",
+			"value": ""
+		}
+	]
+}

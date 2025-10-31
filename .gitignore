@@ -1,6 +1,71 @@
-.vscode/launch.json
-.vscode/c_cpp_properties.json
-.vscode/tasks.json
-input_integer.c
-input_char.c
-.vscode/settings.json
+# IDE (IntelliJ IDEA / Android Studio)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Eclipse / STS
+.project
+.classpath
+.settings/
+.factorypath
+.springBeans
+.sts4-cache/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+*.jar
+*.war
+*.ear
+
+# Java / Kotlin / Maven
+target/
+out/
+bin/
+
+# Compiled classes
+*.class
+
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+
+# Local test artifacts (generic)
+/input_integer.c
+/input_char.c
+
+# Python
+__pycache__/
+*.pyc
+
+# C/C++
+*.o
+*.so
+*.exe
+
+# OS
+.DS_Store
+Thumbs.db
+EOF
+
+.cursorrules
+*.jks
