@@ -196,7 +196,7 @@ BrickGame_v3.0_Java.ID_1449918-1/
 │   │   │       │   ├── service/                   # Бизнес-логика
 │   │   │       │   └── dto/                       # Data Transfer Objects
 │   │   │       ├── client_lib/                    # Клиентская библиотека
-│   │   │       │   ├── BrickGameClient.java       # Интерфейс клиентаjxb
+│   │   │       │   ├── BrickGameClient.java       # Интерфейс клиента
 │   │   │       │   ├── RestBrickGameClient.java   # REST реализация
 │   │   │       │   └── examples/                  # Примеры использования
 │   │   │       │       ├── SwingExample.java      # Swing GUI
@@ -506,6 +506,8 @@ make test
 
 **Directpi**
 
+---
+
 Проект разработан в рамках учебного проекта "BrickGame v3.0 Racing" для изучения:
 - Клиент-серверной архитектуры
 - REST API проектирования
@@ -515,7 +517,7 @@ make test
 
 ---
 
-**Последнее обновление**: 2025-01-XX  
+**Последнее обновление**: 2025-11-01  
 **Версия проекта**: 3.0 MVP + Desktop + CLI Integration  
 **Статус**: ✅ Готов к использованию
 
