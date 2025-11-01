@@ -1,4 +1,4 @@
-### Новые автотесты (2025-10-30)
+### Автотесты (2025-10-30)
 - Auth: refresh-access-token (некорректный Bearer) — Ожид.: 400/401/403 — Статус: Pass — Ссылка: `tests/api/test_auth.py::TestAuthRefreshTokenEdges::test_refresh_token_malformed_bearer`
 - Auth: change-password (unauthorized) — Ожид.: 401/403 — Pass — `TestAuthChangePasswordNegatives::test_change_password_unauthorized`
 - Auth: change-password (wrong current) — Ожид.: 400/401/403/422 — Pass — `...::test_change_password_wrong_current`
