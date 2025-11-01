@@ -310,3 +310,10 @@ ACTIVE_TAG_FILES.txt
 # Documentation (ignored per request)
 # =========================
 docs/**
+
+# Environment and secrets
+.env
+.env.*
+!\.env.example
+tests/config/.env
+tests/config/.env.*
