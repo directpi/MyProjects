@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BrickGame Racing Web v3.0</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div id="grid"></div>
+    <div class="controls">
+      <button id="btnStart">Start Game (Space)</button>
+      <button id="btnPause">Pause (P)</button>
+      <button id="btnLeft">← Left</button>
+      <button id="btnRight">Right →</button>
+      <button id="btnAccel">↑ Speed Up</button>
+    </div>
+  </div>
+  <div class="sidebar">
+    <h3>RACING</h3>
+    <div id="info">
+      <div>Score: <span id="score">0</span></div>
+      <div>Hi-Score: <span id="hiScore">0</span></div>
+      <div>Level: <span id="level">1</span></div>
+      <div>Speed: <span id="speed">1</span></div>
+      <div>Status: <span id="status">Not Started</span></div>
+    </div>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

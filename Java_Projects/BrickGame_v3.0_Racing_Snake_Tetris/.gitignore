@@ -1,76 +1,62 @@
-# =========================
-# Prerequisites / Build artifacts
-# =========================
+# Prerequisites
 *.d
-
-# =========================
-# Object files (C/C++)
-# =========================
+ 
+# Object files
 *.o
 *.ko
 *.obj
 *.elf
-
-# =========================
+*.bag
+*.h5
+*.vdi
+*.sav
+*.dmp
+ 
 # Linker output
-# =========================
 *.ilk
 *.map
 *.exp
-
-# =========================
+ 
 # Precompiled Headers
-# =========================
 *.gch
 *.pch
-
-# =========================
+ 
 # Libraries
-# =========================
 *.lib
 *.a
 *.la
 *.lo
 *.bin
 *.sys
-
-# =========================
-# Shared objects (DLLs)
-# =========================
+ 
+# Shared objects (inc. Windows DLLs)
 *.dll
 *.so
 *.so.*
 *.dylib
-
-# =========================
+ 
 # Executables
-# =========================
 *.exe
 *.app
 *.i*86
 *.x86_64
 *.hex
 *.apk
-
-# =========================
+ 
 # Debug files
-# =========================
 *.dSYM/
 *.su
 *.idb
 *.pdb
-
-# =========================
-# Packaging / Archives
-# =========================
+ 
+ 
+# Packaging
 *.zip
 *.7z
 *.gz
 *.rar
 *.tar
 *.jar
-*.war
-*.ear
 *.iso
 *.sketch
 *.apk
@@ -80,16 +66,8 @@
 *.rom
 *.img
 *.deb
-*.bag
-*.h5
-*.vdi
-*.sav
-*.dmp
-
-# =========================
-# Media formats
-# =========================
-# Audio
+ 
+# Audio formats
 *.mp3
 *.ogg
 *.wav
@@ -104,8 +82,8 @@
 *.wm
 *.flac
 *.dts
-
-# Video
+ 
+# Video formats
 *.mov
 *.avi
 *.asf
@@ -131,20 +109,18 @@
 *.vid
 *.vob
 *.yuv
-
+ 
 # Animation
 *.spl
 *.swf
 *.flv
 *.f4m
-
+ 
 # Subtitles
 *.srt
 *.stl
-
-# =========================
+ 
 # Kernel Module Compile Results
-# =========================
 *.mod*
 *.cmd
 .tmp_versions/
@@ -157,49 +133,30 @@ dkms.conf
 # =========================
 # IDE settings
 # =========================
-# IntelliJ IDEA / Android Studio
 .idea/
+.vscode/
+.fleet/
 *.iml
 *.ipr
 *.iws
-
-# VS Code
-.vscode/
-.fleet/
-
-# Eclipse / STS / Spring Tools
-.project
 .classpath
+.project
 .settings/
-.factorypath
-.springBeans
-.sts4-cache/
-
-# NetBeans
-nbproject/private/
-nbbuild/
-dist/
-nbdist/
-.nb-gradle/
 
 # =========================
 # Build artifacts
 # =========================
-# Gradle
 .gradle/
 build/
 **/build/
-!gradle/wrapper/**
-!gradlew
-!gradlew.bat
-
-# Java / Kotlin / Maven
 out/
 bin/
 target/
 
-# Compiled classes
-*.class
+# Keep Gradle wrapper
+!gradle/wrapper/**
+!gradlew
+!gradlew.bat
 
 # =========================
 # Logs
@@ -211,29 +168,23 @@ hs_err_pid*.log
 replay_pid*.log
 
 # =========================
-# OS files
+# OS cruft
 # =========================
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-*.tmp
 
 # =========================
-# Editor / IDE temporary files
+# Docs (ignored per request)
 # =========================
-*~
+docs/**
+README_PROJECT.md
+
+# =========================
+# Cursor rules
+# =========================
 .cursorrules
 .cursorignore
 .cursor/
-.gigaide/
-.gigaide/gigaide.properties
-
-# =========================
-# Python
-# =========================
-__pycache__/
-*.pyc
 
 # =========================
 # Qt / CMake generated
@@ -247,25 +198,23 @@ qrc_*/
 *.qmake.stash
 *.pro.user*
 
-# Qt generated files
-**/moc_predefs.h
-**/obj/
-**/moc/
-# Note: ui/ directories contain generated headers, keep source .ui files
-**/ui/ui_*.h
-**/UI_*/build/
-**/.qmake.stash
-
 # CMake build dirs and files
 CMakeFiles/
 CMakeCache.txt
 cmake-build-*/
+# Note: Keep source Makefiles, ignore Qt-generated Makefiles
+**/gui/desktop/Makefile
 compile_commands.json
 CTestTestfile.cmake
 _deps/
 
-# Note: Keep source Makefiles, ignore Qt-generated Makefiles
-**/gui/desktop/Makefile
+# Qt generated files
+**/moc_predefs.h
+**/obj/
+**/moc/
+**/ui/ (except .ui source files)
+**/UI_*/build/
+**/.qmake.stash
 
 # =========================
 # Game data files (scores)
@@ -283,30 +232,21 @@ tetris_record_score.txt
 *.backup
 *.backup*
 *.patch
+*~
 ACTIVE_TAG_FILES.txt
 **/*_fixed.cpp
 **/*_new.cpp
 **/*_simple.cpp
-
-# Local test artifacts
-/input_integer.c
-/input_char.c
 
 # =========================
 # Auto-generated executables and scripts
 # =========================
 **/s21_brickgame_desktop
 **/s21_brickgame
+run-terminal.sh
 
 # =========================
-# Security / Certificates
+# IDE and tool specific
 # =========================
-*.jks
-*.keystore
-*.p12
-*.pfx
-
-# =========================
-# Documentation (ignored per request)
-# =========================
-docs/**
+.gigaide/
+.gigaide/gigaide.properties
