@@ -319,3 +319,5 @@ tests/config/.env
 tests/config/.env.*
 QA_AQA/Autopark/docs/test_report_template.md
 QA_AQA/Autopark/docs/bug_report_template.md
+CPP_projects/CCP5_Maze_and_Cave/src/CMakeLists.txt.user
+keystore.jks
