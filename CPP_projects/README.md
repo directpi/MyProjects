@@ -4,12 +4,16 @@
 
 [1. Matrix+](./CPP1_matrix/src/README.md) 
 *Операции над матрицами*  
+
 [2. Контейнеры.](./СPP2_containers/README.md) 
 *Собственная реализация стандартной баблиотеки С++*  
+
 [3. Brick game 2_0](./CPP3_Brick_Game/README.md) 
 *Реализация десктопной и консольной версии игр Змейка (Snake) и Тетрис*  
+
 [4. 3D Viewer 2.0 (QT)](./CPP4_3DViewer/src/README.md) 
 *Реализация 3D Viewer*  
+
 [5. MAZE and CAVE (QT)](./CCP5_Maze_and_Cave/readme.md) 
 Приложение для генерации, решения лабиринтов и моделирования пещер + ML + WEB  
 
