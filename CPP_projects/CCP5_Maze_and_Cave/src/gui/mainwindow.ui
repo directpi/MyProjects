@@ -1,0 +1,2921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>653</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1024</width>
+    <height>640</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1024</width>
+    <height>672</height>
+   </size>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>85</red>
+        <green>170</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>212</red>
+        <green>234</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Midlight">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>148</red>
+        <green>202</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Dark">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>42</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Mid">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>57</red>
+        <green>113</green>
+        <blue>170</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="BrightText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>85</red>
+        <green>170</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Shadow">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="AlternateBase">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>170</red>
+        <green>212</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipBase">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="127">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>239</red>
+        <green>239</green>
+        <blue>239</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Midlight">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>202</red>
+        <green>202</green>
+        <blue>202</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Dark">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>159</red>
+        <green>159</green>
+        <blue>159</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Mid">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>184</red>
+        <green>184</green>
+        <blue>184</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="BrightText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>239</red>
+        <green>239</green>
+        <blue>239</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Shadow">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>118</red>
+        <green>118</green>
+        <blue>118</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="AlternateBase">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>247</red>
+        <green>247</green>
+        <blue>247</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipBase">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>42</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Button">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>85</red>
+        <green>170</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Light">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>212</red>
+        <green>234</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Midlight">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>148</red>
+        <green>202</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Dark">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>42</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Mid">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>57</red>
+        <green>113</green>
+        <blue>170</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>42</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="BrightText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>42</red>
+        <green>85</green>
+        <blue>127</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Base">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>85</red>
+        <green>170</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Window">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>85</red>
+        <green>170</green>
+        <blue>255</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Shadow">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="AlternateBase">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>247</red>
+        <green>247</green>
+        <blue>247</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipBase">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>255</green>
+        <blue>220</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="PlaceholderText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="128">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="windowTitle">
+   <string>MAZE and CAVE by Harkonex, Margarin, Directpi</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources/resources.qrc">
+    <normaloff>:/icons/app_icon.png</normaloff>:/icons/app_icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1024</width>
+     <height>650</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1024</width>
+     <height>650</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(30, 61, 89);</string>
+   </property>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>42</x>
+      <y>14</y>
+      <width>502</width>
+      <height>566</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_11">
+     <item row="0" column="0">
+      <widget class="DungeonView" name="dungeon_view">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>500</width>
+         <height>500</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>500</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="file_name_lbl">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {color: #ffffff;  border: 3px solid #354F52; padding: 2px; font: bold 14px 'Segoe UI'; border-radius: 0px;} QLineEdit:hover {border: 3px solid #52796F;}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="loaded_maze_size_lbl">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {color: #ffffff;  border: 3px solid #354F52; padding: 2px; font: bold 14px 'Segoe UI'; border-radius: 0px;} QLineEdit:hover {border: 3px solid #52796F;}</string>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>579</x>
+      <y>18</y>
+      <width>401</width>
+      <height>586</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_7">
+     <item row="0" column="0">
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QPushButton" name="load_maze_btn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>357</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;            
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>LOAD MAZE FROM FILE</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+O</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="generate_maze_btn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>357</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;             
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>GENERATE MAZE</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="3">
+          <widget class="QSpinBox" name="cols_create_spb">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1000</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+           </property>
+           <property name="text">
+            <string>Columns:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1000</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: white; font: bold 14px 'Segoe UI';
+</string>
+           </property>
+           <property name="text">
+            <string>Rows:   </string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="rows_create_spb">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем ваш отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении (золотые/неоновые) */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>50</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="QPushButton" name="save_maze_btn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>357</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница (#FFD700 — классический золотой) */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее на hover */
+    border-color: #FFE44D;             /* Ярче золото при наведении */
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>SAVE MAZE</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+S</string>
+         </property>
+         <property name="autoRepeat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0" colspan="2">
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="0">
+            <spacer name="verticalSpacer_13">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>18</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <spacer name="verticalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>17</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+             </property>
+             <property name="text">
+              <string>START</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <spacer name="verticalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>18</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+             </property>
+             <property name="text">
+              <string>FINISH</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <spacer name="verticalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>17</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="6">
+            <spacer name="verticalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>17</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <layout class="QGridLayout" name="gridLayout_6">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_5">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+             </property>
+             <property name="text">
+              <string>   Row</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <spacer name="verticalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>13</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_6">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+             </property>
+             <property name="text">
+              <string>  Column</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <spacer name="verticalSpacer_11">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>13</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_8">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+             </property>
+             <property name="text">
+              <string>   Row</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <spacer name="verticalSpacer_12">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>13</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="6">
+            <widget class="QLabel" name="label_7">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+             </property>
+             <property name="text">
+              <string>   Column</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0" rowspan="2" colspan="2">
+            <widget class="QSpinBox" name="start_row_spb">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="2">
+            <widget class="QSpinBox" name="start_col_spb">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3" rowspan="2">
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>28</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="4" rowspan="2" colspan="2">
+            <widget class="QSpinBox" name="finish_row_spb">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="6" rowspan="2">
+            <widget class="QSpinBox" name="finish_col_spb">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>75</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+             </property>
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>50</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>18</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="5">
+            <spacer name="verticalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>18</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="find_way_btn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1000</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;             
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>FIND MAZE WAY</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="ml_agent_training_btn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1000</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Segoe UI</family>
+             <pointsize>-1</pointsize>
+             <italic>false</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;             
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+           </property>
+           <property name="text">
+            <string>ML AGENT TRAINIG</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>348</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0" colspan="6">
+        <widget class="QPushButton" name="load_cave_btn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>357</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;             
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>LOAD CAVE FROM FILE</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+O</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="6">
+        <widget class="QPushButton" name="generate_cave_btn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>357</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;             
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>GENERATE CAVE</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; font: bold 14px 'Segoe UI';
+</string>
+         </property>
+         <property name="text">
+          <string>Birth limit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>18</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="2" colspan="2">
+        <widget class="QLabel" name="label_16">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+         </property>
+         <property name="text">
+          <string>Death limit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>18</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="5">
+        <widget class="QLabel" name="label_17">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+         </property>
+         <property name="text">
+          <string>Chance of life (%)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QSpinBox" name="birth_limit_spb">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+         </property>
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>7</number>
+         </property>
+         <property name="value">
+          <number>3</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>13</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="2" colspan="2">
+        <widget class="QSpinBox" name="death_limit_spb">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+         </property>
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>7</number>
+         </property>
+         <property name="value">
+          <number>3</number>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>18</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="3" column="5">
+        <widget class="QSpinBox" name="chance_of_life_spb">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+         <property name="value">
+          <number>50</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" rowspan="2" colspan="6">
+        <widget class="QLabel" name="label_18">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: white; font: bold 14px 'Segoe UI';</string>
+         </property>
+         <property name="text">
+          <string>Delay (msec)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2" rowspan="2">
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="0" colspan="2">
+        <widget class="QSpinBox" name="delay_spb">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/* Основной стиль SpinBox */
+QSpinBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border: 2px solid #FFD700;        /* Золотая граница */
+    border-radius: 4px;               /* Лёгкое закругление */
+    padding: 3px 6px;                 /* Компактные отступы */
+    font: bold 14px 'Segoe UI';
+    margin-right: 20px;               /* Сохраняем отступ */
+    selection-background-color: #3A8CB0; /* Цвет выделения текста */
+}
+
+/* Стили для кнопок &quot;+/-&quot; */
+QSpinBox::down-button, QSpinBox::up-button {
+    background-color: #1E3D59;        /* Фон как у SpinBox */
+    border-left: 1px solid #FFD700;   /* Золотая разделительная линия */
+    width: 20px;                      /* Ширина кнопок */
+    border-radius: 0 4px 4px 0;       /* Закругление справа */
+}
+
+
+QSpinBox::up-arrow {
+    image: url(&quot;:/icons/arrow_up.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+QSpinBox::down-arrow {
+    image: url(&quot;:/icons/arrow_down.png&quot;);
+    width: 12px;
+    height: 12px;
+}
+
+/* Состояние при наведении */
+QSpinBox:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #2A5173;        /* Подсветка кнопок */
+}
+
+/* Изменённые иконки при наведении */
+QSpinBox::up-arrow:hover {
+    image: url(&quot;:/icons/arrow_up_gold.png&quot;); /* Золотая стрелка вверх */
+}
+
+QSpinBox::down-arrow:hover {
+    image: url(&quot;:/icons/arrow_down_gold.png&quot;); /* Золотая стрелка вниз */
+}
+
+/* Состояние в фокусе */
+QSpinBox:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QSpinBox:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+    color: #7A8C89;
+}</string>
+         </property>
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>1000</number>
+         </property>
+         <property name="singleStep">
+          <number>10</number>
+         </property>
+         <property name="value">
+          <number>300</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="3" colspan="3">
+        <widget class="QPushButton" name="start_cave_btn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1000</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+    background-color: #1E3D59;          /* Тёмный синий */
+    color: #00E5FF;                    /* Неоново-голубой текст */
+    border: 1px solid #FFD700;         /* Тонкая золотая граница */
+    border-radius: 8px;
+    padding: 7px 14px;
+    font: bold 14px 'Segoe UI';
+}
+
+QPushButton:hover:enabled {
+    background-color: #2A5173;         /* Светлее при наведении */
+    border-color: #FFE44D;             
+    color: #6DF2FF;                   /* Ярче текст */
+}
+
+QPushButton:pressed:enabled {
+    background-color: #0F2C40;         /* Темнее при нажатии */
+    border-color: #FFD700;             /* Возвращаем базовый золотой */
+}
+
+QPushButton:disabled {
+    background-color: #3A5466;         /* Приглушённый синий */
+    border-color: #ADAD7A;             /* Тусклое золото */
+    color: #5A9CAD;                   /* Серо-голубой текст */
+}
+</string>
+         </property>
+         <property name="text">
+          <string>START/RESUME</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="6">
+        <widget class="QCheckBox" name="step_checkBox">
+         <property name="styleSheet">
+          <string notr="true">/* Основной стиль CheckBox */
+QCheckBox {
+    color: #E0F7FF;                   /* Мягкий голубовато-белый текст */
+    spacing: 5px;                     /* Расстояние между квадратом и текстом */
+    font: bold 14px 'Segoe UI';
+}
+
+/* Стиль индикатора (квадрата) */
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #FFD700;        /* Золотая граница */
+    background-color: #1E3D59;        /* Тёмный сине-серый фон */
+    border-radius: 3px;               /* Лёгкое закругление */
+}
+
+/* Состояние при наведении */
+QCheckBox:hover {
+    color: #FFFFFF;                   /* Яркий белый текст */
+}
+
+QCheckBox::indicator:hover {
+    border: 2px solid #FFE44D;        /* Ярко-золотая граница */
+    background-color: #2A5173;        /* Светлее фон */
+}
+
+/* Состояние &quot;включено&quot; */
+QCheckBox::indicator:checked {
+    background-color: #FFD700;        /* Золотой фон */
+    image: url(&quot;:/icons/checkmark.png&quot;); /* Иконка галочки */
+    border: 2px solid #FFD700;
+}
+
+/* Состояние в фокусе */
+QCheckBox:focus {
+    color: #00E5FF;                   /* Неоновый текст */
+}
+
+QCheckBox::indicator:focus {
+    border: 2px solid #00E5FF;        /* Неоновая граница */
+}
+
+/* Отключённое состояние */
+QCheckBox:disabled {
+    color: #7A8C89;
+}
+
+QCheckBox::indicator:disabled {
+    background-color: #3A5466;
+    border: 2px solid #ADAD7A;        /* Тусклое золото */
+}
+
+QCheckBox::indicator:checked:disabled {
+    background-color: #ADAD7A;        /* Тусклое золото */
+    border: 2px solid #ADAD7A;
+}</string>
+         </property>
+         <property name="text">
+          <string>Step-by-step mode for rendering cave  </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DungeonView</class>
+   <extends>QGraphicsView</extends>
+   <header>DungeonView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../resources/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

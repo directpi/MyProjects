@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/app_icon.png</file>
+        <file>icons/arrow_up.png</file>
+        <file>icons/arrow_down.png</file>
+        <file>icons/start_icon.png</file>
+        <file>icons/finish_icon.png</file>
+        <file>icons/arrow_down_gold.png</file>
+        <file>icons/arrow_up_gold.png</file>
+        <file>fonts/arial.ttf</file>
+        <file>fonts/segoeui.ttf</file>
+    </qresource>
+</RCC>
