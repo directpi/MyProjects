@@ -12,7 +12,9 @@
 *Реализация 3D Viewer*  
 [5. MAZE and CAVE (QT)](./CCP5_Maze_and_Cave/readme.md) 
 Приложение для генерации, решения лабиринтов и моделирования пещер + ML + WEB  
+
 [6. Решение заданий Тренировок по алгоритмам 4.0 от Яндекс](./CPP_Yandex_algorithms_4.0/README.md)  
+
 [7.Brick game 3_0 (Java/C/C++)](./../Java_Projects/BrickGame_v3.0_Racing_Snake_Tetris/README.md)  
 *Проект представляет собой многоплатформенную систему с тремя интерфейсами (Web, Desktop, CLI), использующую REST API для взаимодействия клиента и сервера и интеграцию Java-приложения с нативными C/C++ библиотеками через JNI*
 
