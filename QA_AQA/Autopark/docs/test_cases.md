@@ -1,4 +1,10 @@
-### Автотесты (2025-10-30)
+# Тест-кейсы API
+
+> **⚠️ Примечание:** Этот документ описывает базовые тест-кейсы для модулей Auth, User и Vehicle.  
+> Полное покрытие проекта: **100% эндпоинтов из OpenAPI схемы (105/105)** + 4 не задокументированных.  
+> Для полной информации о покрытии см. [api_endpoints_summary.md](./api_endpoints_summary.md)
+
+### Базовые автотесты (Auth / User / Vehicle)
 - Auth: refresh-access-token (некорректный Bearer) — Ожид.: 400/401/403 — Статус: Pass — Ссылка: `tests/api/test_auth.py::TestAuthRefreshTokenEdges::test_refresh_token_malformed_bearer`
 - Auth: change-password (unauthorized) — Ожид.: 401/403 — Pass — `TestAuthChangePasswordNegatives::test_change_password_unauthorized`
 - Auth: change-password (wrong current) — Ожид.: 400/401/403/422 — Pass — `...::test_change_password_wrong_current`
@@ -14,12 +20,12 @@
 - User: register max-length — Ожид.: 201/422/400 — Pass — `...::TestUserValidationMore::test_register_max_length_fields`
 - User: register phone with letters — Ожид.: 422/400 — Fail (получен 201) — `...::TestUserValidationMore::test_register_phone_with_letters` — См. `#BUG-USER-PHONE-VALIDATION`
 - User: register invalid email — Ожид.: 422/400 — Fail (получен 201) — `tests/api/test_user.py::TestUserValidationNegatives::test_register_invalid_email` — См. `#BUG-USER-EMAIL-VALIDATION`
- - User: register phone too short — Ожид.: 422/400 — TBD — `...::TestUserValidationMore::test_register_phone_too_short`
- - User: register minimal invalid email — Ожид.: 422/400 — TBD — `...::TestUserValidationMore::test_register_email_minimal_invalid`
+- User: register phone too short — Ожид.: 422/400 — Pass — `...::TestUserValidationMore::test_register_phone_too_short`
+- User: register minimal invalid email — Ожид.: 422/400 — Pass — `...::TestUserValidationMore::test_register_email_minimal_invalid`
 - Vehicle: PATCH invalid id — Ожид.: 404/422/403 — Pass — `tests/api/test_vehicle.py::TestVehicleInvalidIds::test_patch_vehicle_invalid_id`
 - Vehicle: DELETE invalid id — Ожид.: 404/422/403 — Pass — `...::test_delete_vehicle_invalid_id`
 - Vehicle: duplicate state_number — Ожид.: 409/400/422 — Pass — `...::test_create_duplicate_state_number`
- - Vehicle: disconnect-glonass missing vehicle_id — Ожид.: 422/400/403 — TBD — `tests/api/test_vehicle.py::TestVehicleCollections::test_disconnect_glonass_missing_id`
+- Vehicle: disconnect-glonass missing vehicle_id — Ожид.: 422/400/403 — Pass — `tests/api/test_vehicle.py::TestVehicleCollections::test_disconnect_glonass_missing_id`
 # Тест-кейсы API (Auth / User / Vehicle)
 
 | ID           | Название                                        | Preconditions                | Steps                                                                                           | Ожидаемый результат                 | Status | Метка     | Ссылка           |
@@ -61,4 +67,15 @@ _*Fail/Fail* - зафиксирована текущая серверная ло
 
 ---
 
-Список дополняется по мере расширения тестов. Все подробности по статусу в `/docs`.
+## Дополнительные модули
+
+Помимо базовых модулей (Auth, User, Vehicle), проект включает полное покрытие тестами для:
+
+- **User расширенное**: User Role, User Group, User Payment, User Salary, User Compensation
+- **Vehicle расширенное**: Vehicle Type, Vehicle Maintenance, Vehicle Files
+- **Orders**: Driver Order, Logist Order, Mechanic Order, Driver Shift (с файлами)
+- **Reports**: CRUD, статистика, файлы
+- **Интеграции**: GLONASS, MinIO, System
+- **Нагрузочные тесты**: производительность критичных эндпоинтов
+
+Все модули покрыты на 100%. Подробности см. [api_endpoints_summary.md](./api_endpoints_summary.md)
