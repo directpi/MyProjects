@@ -129,6 +129,86 @@ pytest -v -s
 pytest --html=reports/report.html --self-contained-html
 ```
 
+### Allure отчеты
+
+**ВАЖНО:** Allure показывает только **ВЫПОЛНЕННЫЕ** тесты (SKIPPED тесты не отображаются в статистике по умолчанию).
+
+#### Быстрый просмотр (рекомендуется)
+```bash
+# Автоматически запускает сервер и открывает браузер
+allure serve tests/reports/allure-results
+```
+
+**Требования:** Установленный Allure CLI (см. установку ниже)
+
+#### Генерация статического отчета
+
+**Шаг 1: Очистить старые результаты (рекомендуется)**
+```bash
+rm -rf tests/reports/allure-results/*
+```
+
+**Шаг 2: Запустить тесты**
+```bash
+# Результаты автоматически сохраняются в tests/reports/allure-results
+pytest
+```
+
+**Шаг 3: Сгенерировать отчет**
+```bash
+allure generate tests/reports/allure-results -o tests/reports/allure-report --clean
+```
+
+**Шаг 4: Запустить HTTP сервер**
+```bash
+python3 -m http.server -d tests/reports/allure-report 8000
+```
+
+**Шаг 5: Открыть в браузере**
+```
+http://127.0.0.1:8000/
+```
+
+#### Установка Allure CLI
+
+**Linux/WSL:**
+```bash
+# Скачать и установить
+wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz
+tar -xzf allure-2.27.0.tgz
+sudo mv allure-2.27.0 /opt/allure
+sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
+
+# Проверить установку
+allure --version
+```
+
+**Альтернатива:** Использовать готовый скрипт из проекта:
+```bash
+./run_tests_with_allure.sh
+```
+
+#### Что включено в Allure отчеты
+
+- **Артефакты тестов:**
+  - HTTP запросы и ответы (для API тестов)
+  - Скриншоты при падении (для UI тестов)
+  - DOM-снимки при падении (для UI тестов)
+  - Метрики производительности (для нагрузочных тестов)
+
+- **Разделы отчета:**
+  - Обзор (Overview) — статистика по тестам
+  - Категории (Categories) — группировка по типам
+  - Сьюиты (Suites) — группировка по файлам
+  - Графики (Graphs) — визуализация результатов
+  - Временная шкала (Timeline) — хронология выполнения
+
+- **Пути:**
+  - Результаты: `tests/reports/allure-results/` (JSON файлы)
+  - Отчет: `tests/reports/allure-report/` (HTML статика)
+
+**Примечание:** HTML отчет pytest (`reports/report.html`) содержит все тесты (включая SKIPPED), в отличие от Allure, который фокусируется на выполненных тестах.
+
 ## Структура
 
 ```

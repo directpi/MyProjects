@@ -40,10 +40,9 @@ def _get_first_env(*keys: str) -> str | None:
 
 
 # Базовые настройки из переменных окружения
-API_BASE_URL = (
-    _get_first_env("API_BASE_URL", "BASE_URL", "API_URL")
-    or "http://193.221.203.131:33333"
-)
+# SECURITY: do not provide an external default URL to avoid accidental runs
+# against non-intended (including production) environments.
+API_BASE_URL = _get_first_env("API_BASE_URL", "BASE_URL", "API_URL")
 TEST_USER = _get_first_env(
     "TEST_USER", "USER_EMAIL", "AUTH_USERNAME", "AUTH_EMAIL", "USERNAME", "EMAIL"
 )
@@ -79,6 +78,8 @@ def pytest_sessionfinish(session, exitstatus):
 @pytest.fixture(scope="session")
 def api_base_url() -> str:
     """Базовый URL API"""
+    if not API_BASE_URL:
+        pytest.skip("API_BASE_URL не задан в .env — пропускаю API тесты")
     return API_BASE_URL
 
 

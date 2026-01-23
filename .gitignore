@@ -226,6 +226,8 @@ Thumbs.db
 .cursorrules
 .cursorignore
 .cursor/
+/docs/*
+code_review_docs/
 .gigaide/
 .gigaide/gigaide.properties
 
