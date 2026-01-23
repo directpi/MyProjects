@@ -1,14 +1,24 @@
 #!/bin/bash
 
 # Параметры подключения к PostgreSQL
-DB_NAME="tictactoe_db"
-DB_USER="java_user"
-DB_PASSWORD="123456"
-PG_HOST="localhost"  # Используем TCP/IP вместо локального сокета
+DB_NAME="${DB_NAME:-tictactoe_db}"
+DB_USER="${DB_USER:-java_user}"
+DB_PASSWORD="${DB_PASSWORD:-}"
+PG_HOST="${PG_HOST:-localhost}"  # Используем TCP/IP вместо локального сокета
 
-PG_USER="postgres"
-PG_PASSWORD="postgres"  # Пароль пользователя postgres
-# Установка переменной окружения для пароля
+PG_USER="${PG_USER:-postgres}"
+PG_PASSWORD="${PG_PASSWORD:-}"
+
+if [[ -z "$DB_PASSWORD" ]]; then
+    echo "DB_PASSWORD не задан (export DB_PASSWORD=...)"
+    exit 1
+fi
+if [[ -z "$PG_PASSWORD" ]]; then
+    echo "PG_PASSWORD не задан (export PG_PASSWORD=...)"
+    exit 1
+fi
+
+# Установка переменной окружения для пароля psql
 export PGPASSWORD="$PG_PASSWORD"
 
 # Проверка, установлен ли PostgreSQL
