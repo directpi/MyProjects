@@ -33,8 +33,8 @@ int main() {
     // const size_t m = 1000000;
     // srand(time(MULL))
     int n, l, r;
-    std::vector<int> array(n);
     std::cin >> n;
+    std::vector<int> array(n);
     for (int i = 0; i < n; ++i) {
         std::cin >> array[i];
     }
