@@ -18,11 +18,11 @@ int main() {
         getline(file, line);
         n = atoi(line.c_str());
         vector<vector<pair<int, int>>> p(n + 1);
-        long e = pow(2, n);
+        long long e = 1LL << n;
         vector<vector<int>> mask(e / 2, vector<int>(n));
 
         for (int i = 0; i < e / 2; ++i) {
-            for (int j = 0; j <= n; ++j) {
+            for (int j = 0; j < n; ++j) {
                 mask[i][n - j - 1] = ((i >> j) & 1) == 1;
             }
         }

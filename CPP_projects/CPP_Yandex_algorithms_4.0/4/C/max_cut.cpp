@@ -43,7 +43,7 @@ int main() {
     int n, cnt_res;
     cin >> n;
     vector<vector<pair<int, int>>> p(n + 1);
-    long e = pow(2, n);
+    long long e = 1LL << n;
     vector<vector<int>> mask(e / 2, vector<int>(n));
     int mt = 0;
     for (int i = 1; i <= n; ++i) {
@@ -55,7 +55,7 @@ int main() {
         }
     }
     for (int i = 0; i < e / 2; ++i) {
-        for (int j = 0; j <= n; ++j) {
+        for (int j = 0; j < n; ++j) {
             mask[i][n - j - 1] = ((i >> j) & 1) == 1;
         }
     }
@@ -64,8 +64,8 @@ int main() {
     // max_cat(mask, n, p, res, e, cnt_res);
     for (int k = 1; k < e / 2; ++k) {
         int tmp = 0;  //, sum = 0;
-        // for (int ii = 0; ii < n; ++ii) sum += mask[k][ii];
         vector<int> st;
+        // for (int ii = 0; ii < n; ++ii) sum += mask[k][ii];
         // if (sum != n) {
         for (int i = 0; i < n; ++i) {
             if (mask[k][i] == 1) {

@@ -28,13 +28,13 @@ int main() {
             return 0;
         }
         vector<vector<pair<int, int>>> p(n + 1);
-        size_t e = 1ULL << static_cast<unsigned>(n);
+        long long e = 1LL << n;
         vector<vector<int>> mask(e / 2, vector<int>(n));
         vector<int> sum_e_v(n + 1);
 
-        for (size_t i = 0; i < e / 2; ++i) {
+        for (int i = 0; i < e / 2; ++i) {
             for (int j = 0; j < n; ++j) {
-                mask[i][n - j - 1] = ((i >> static_cast<unsigned>(j)) & 1ULL) == 1ULL;
+                mask[i][n - j - 1] = ((i >> j) & 1) == 1;
             }
         }
         int mt = 0, j = 1;
@@ -60,7 +60,7 @@ int main() {
         cnt_res = 0;
 
         vector<int> st;
-        for (size_t k = 1; k < e / 2; ++k) {  //  int k = e / 2 - 1; k > 0; --k
+        for (int k = 1; k < e / 2; ++k) {  //  int k = e / 2 - 1; k > 0; --k
             int tmp = 0;
             for (int i = 0; i < n; ++i) {
                 if (mask[k][i] == 1) {
@@ -79,7 +79,7 @@ int main() {
             }
             if (res < tmp) {
                 res = tmp;
-                cnt_res = static_cast<int>(k);
+                cnt_res = k;
             }
         }
         cout << res << "\n";
