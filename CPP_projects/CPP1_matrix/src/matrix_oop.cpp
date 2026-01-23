@@ -15,13 +15,15 @@ Matrix::Matrix(int m_rows, int n_cols) : rows(m_rows), cols(n_cols) {
 }
 
 Matrix::Matrix(const Matrix& another)
-    : rows(another.rows), cols(another.cols) {
+    : rows(another.rows), cols(another.cols), matrix_ptr(nullptr) {
   Copy(another);
 }
 
-Matrix::Matrix(Matrix&& another)
+Matrix::Matrix(Matrix&& another) noexcept
     : rows(another.rows), cols(another.cols), matrix_ptr(another.matrix_ptr) {
-  Move(another);
+  another.rows = 0;
+  another.cols = 0;
+  another.matrix_ptr = nullptr;
 }
 
 Matrix::~Matrix() {
@@ -81,7 +83,7 @@ void Matrix::MulNumber(const double num) {
   }
 }
 void Matrix::MulMatrix(const Matrix& another) {
-  if (this->rows != another.cols || this->cols != another.rows) {
+  if (this->cols != another.rows) {
     throw std::invalid_argument("Incorrect matrix sizes for multiplication");
   } else {
     Matrix temp_matrix(this->rows, another.cols);
@@ -122,7 +124,6 @@ Matrix Matrix::CalcComplements() {
           Matrix matr_minor = minor(i, j);
           double determ = matr_minor.Determinant();
           result[i][j] = determ * ((i + j) & 1 ? -1 : 1);
-          matr_minor.~Matrix();
         }
       }
     }
@@ -166,7 +167,6 @@ double Matrix::Determinant() {
         if (det != 0) {
           temp += (*this)[0][j] * det * ((j & 1) ? -1 : 1);
         }
-        // matr_minor.~Matrix();
       }
       result += (double)temp;
     }
@@ -232,16 +232,18 @@ Matrix Matrix::operator*=(const double num) {
   MulNumber(num);
   return (*this);
 }
-Matrix Matrix::operator=(const Matrix& another) noexcept {
+Matrix& Matrix::operator=(const Matrix& another) noexcept {
   if (this != &another) {
     delete[] matrix_ptr;
+    matrix_ptr = nullptr;
     Copy(another);
   }
   return *this;
 }
-Matrix Matrix::operator=(Matrix&& another) noexcept {
+Matrix& Matrix::operator=(Matrix&& another) noexcept {
   if (this != &another) {
     delete[] matrix_ptr;
+    matrix_ptr = nullptr;
     Move(another);
   }
   return *this;
@@ -261,14 +263,14 @@ Matrix operator*(Matrix& A, double num) {
   return res;
 }
 double& Matrix::operator()(int row, int col) & {
-  if (row >= rows || col >= cols || row < 0 || cols < 0) {
+  if (row >= rows || col >= cols || row < 0 || col < 0) {
     throw std::invalid_argument(
         "Incorrect input for (), index is out of range");
   }
   return const_cast<double&>(matrix_ptr[row * cols + col]);
 }
 double& Matrix::operator()(int row, int col) const& {
-  if (row >= rows || col >= cols || row < 0 || cols < 0) {
+  if (row >= rows || col >= cols || row < 0 || col < 0) {
     throw std::invalid_argument(
         "Incorrect input for () const&, index is out of range");
   }
@@ -343,8 +345,8 @@ void Matrix::Copy(const Matrix& another) {
 void Matrix::Move(Matrix& another) {
   rows = another.rows;
   cols = another.cols;
-  matrix_ptr = new double[rows * cols]{0};
-  std::memmove(matrix_ptr, another.matrix_ptr, rows * cols * sizeof(double));
+  matrix_ptr = another.matrix_ptr;
   another.rows = 0;
   another.cols = 0;
+  another.matrix_ptr = nullptr;
 }

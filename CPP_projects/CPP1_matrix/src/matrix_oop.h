@@ -23,7 +23,7 @@ class Matrix {
   // Copy constructor
   Matrix(const Matrix& another);
   // Move constructor
-  Matrix(Matrix&& another);
+  Matrix(Matrix&& another) noexcept;
   // Destructor
   ~Matrix();
 
@@ -56,9 +56,9 @@ class Matrix {
   // Checks for matrices equality (EqMatrix)
   bool operator==(const Matrix& another);
   // Assignment of values from one matrix to another one
-  Matrix operator=(const Matrix& another) noexcept;
+  Matrix& operator=(const Matrix& another) noexcept;
   // Move of values from one matrix to another one
-  Matrix operator=(Matrix&& another) noexcept;
+  Matrix& operator=(Matrix&& another) noexcept;
   // Addition assignment (SumMatrix)
   Matrix& operator+=(const Matrix& another);
   // Difference assignment (SubMatrix)
