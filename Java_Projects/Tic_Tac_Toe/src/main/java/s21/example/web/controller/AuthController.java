@@ -14,6 +14,7 @@ import s21.example.domain.service.AuthService;
 import s21.example.web.model.AuthStatusResponse;
 import s21.example.web.model.SignUpRequest;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.UUID;
 
@@ -43,7 +44,7 @@ public class AuthController {
 
             // Извлекаем логин из заголовка
             String base64Credentials = authHeader.substring("Basic ".length()).trim();
-            String credentials = new String(Base64.getDecoder().decode(base64Credentials));
+            String credentials = new String(Base64.getDecoder().decode(base64Credentials), StandardCharsets.UTF_8);
             String username = credentials.split(":", 2)[0];
 
             return ResponseEntity.ok(
@@ -62,7 +63,7 @@ public class AuthController {
 
             // Извлекаем логин из заголовка Authorization
             String base64Credentials = authHeader.substring("Basic ".length()).trim();
-            String credentials = new String(Base64.getDecoder().decode(base64Credentials));
+            String credentials = new String(Base64.getDecoder().decode(base64Credentials), StandardCharsets.UTF_8);
             String username = credentials.split(":", 2)[0];
 
             return ResponseEntity.ok(

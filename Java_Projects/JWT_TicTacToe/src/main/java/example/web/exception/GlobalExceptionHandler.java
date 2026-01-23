@@ -53,8 +53,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorResponse> handleRuntimeException(RuntimeException ex) {
-        logger.error("Внутренняя ошибка сервера: {}", ex.getMessage());
-        ErrorResponse errorResponse = new ErrorResponse("Internal Server Error", ex.getMessage());
+        logger.error("Внутренняя ошибка сервера", ex);
+        ErrorResponse errorResponse = new ErrorResponse("Internal Server Error", "Внутренняя ошибка сервера");
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
 }

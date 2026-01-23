@@ -166,29 +166,6 @@ public class GameController {
         }
     }
 
-    @DeleteMapping("/admin/{gameId}")
-    public ResponseEntity<?> deleteGameAdmin(
-            @PathVariable UUID gameId,
-            @RequestHeader("X-Admin-Token") String adminToken) {
-
-        // Простая проверка админского токена
-        if (!"admin-secret-token".equals(adminToken)) {
-            logger.warn("Неверный админский токен: {}", adminToken);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                    .body(Map.of("error", "Доступ запрещен"));
-        }
-
-        try {
-            gameService.deleteGameAdmin(gameId);
-            return ResponseEntity.ok().body(Map.of(
-                    "message", "Игра удалена администратором",
-                    "gameId", gameId.toString()));
-        } catch (RuntimeException e) {
-            logger.warn("Игра не найдена для админского удаления: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Map.of("error", e.getMessage()));
-        }
-    }
 
     @GetMapping("/history")
     public ResponseEntity<List<GameDTO>> getGameHistory() {

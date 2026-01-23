@@ -6,9 +6,6 @@ import s21.example.domain.model.Game;
 import s21.example.domain.service.GameService;
 import s21.example.web.model.GameDTO;
 import s21.example.web.mapper.GameMapper;
-
-import jakarta.servlet.http.HttpServletRequest;
-//import org.antlr.v4.runtime.misc.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -143,29 +140,9 @@ public class GameController {
                     .body(Map.of("error", e.getMessage()));
         }
     }
-    @DeleteMapping("/admin/{gameId}")
-    public ResponseEntity<?> deleteGameAdmin(
-            @PathVariable UUID gameId,
-            @RequestHeader("X-Admin-Token") String adminToken) {
-
-        // Простая проверка админского токена
-        if (!"admin-secret-token".equals(adminToken)) {
-            logger.warn("Неверный админский токен: {}", adminToken);
-            return ResponseEntity.status(HttpStatus.FORBIDDEN)
-                    .body(Map.of("error", "Доступ запрещен"));
-        }
-
-        try {
-            gameService.deleteGameAdmin(gameId);
-            return ResponseEntity.ok().body(Map.of(
-                    "message", "Игра удалена администратором",
-                    "gameId", gameId.toString()
-            ));
-        } catch (RuntimeException e) {
-            logger.warn("Игра не найдена для админского удаления: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Map.of("error", e.getMessage()));
-        }
-    }
+    // NOTE: Admin deletion endpoint removed.
+    // Previous implementation used a hardcoded shared secret,
+    // which is a security backdoor pattern. If admin operations are needed,
+    // implement role-based access control via Spring Security authorities.
 
 }

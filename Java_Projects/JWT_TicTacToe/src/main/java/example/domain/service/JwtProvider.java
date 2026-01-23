@@ -17,7 +17,7 @@ import java.util.Map;
 @Component
 public class JwtProvider {
 
-    @Value("${jwt.secret:default-secret-key:3600000}")
+    @Value("${jwt.secret}")
     private String secret;
 
     @Value("${jwt.access.expiration}")
