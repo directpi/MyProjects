@@ -24,11 +24,14 @@ int main() {
       }
       ++i;
     } else {
-      if (!c.empty() && j * j * j != c[count - 1] && a[j * d] != b[j]) {
+      size_t jd = j * d;
+      bool ajd_eq_bj = (jd <= static_cast<size_t>(n)) && (a[jd] == b[j]);
+      bool ajd_ne_bj = !ajd_eq_bj;
+      if (!c.empty() && j * j * j != c[count - 1] && ajd_ne_bj) {
         c.push_back(j * j * j);
         ++count;
       }
-      if (a[j * d] == b[j]) ++d;
+      if (ajd_eq_bj) ++d;
       ++j;
     }
   }
