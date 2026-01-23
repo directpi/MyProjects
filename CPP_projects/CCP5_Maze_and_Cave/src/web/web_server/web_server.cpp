@@ -1,20 +1,85 @@
 #include "web_server.h"
 
+#include <cerrno>
+#include <cstdlib>
+#include <cstring>
+#include <cstdio>
 #include <fstream>
 #include <iostream>
 #include <optional>
 #include <string>
 #include <vector>
 
-#include "../../include/dungeon/core/Maze.h"
-#include "../../include/dungeon/io/MazeLoader.h"
-#include "../../include/dungeon/pathfinding/MazeBfsPathfinder.h"
 #include "libs/httplib.h"
 #include "libs/json.hpp"
+
+#include <unistd.h>  // mkstemp, close
 
 using json = nlohmann::json;
 
 WebServer::WebServer() : game(Game::create()) {}
+
+namespace {
+
+const char* get_env(const char* key) {
+  if (!key) return nullptr;
+  return std::getenv(key);
+}
+
+std::string get_env_or(const char* key, const char* default_value) {
+  const char* v = get_env(key);
+  if (v && *v) return std::string(v);
+  return std::string(default_value ? default_value : "");
+}
+
+int get_env_int_or(const char* key, int default_value) {
+  const char* v = get_env(key);
+  if (!v || !*v) return default_value;
+  try {
+    return std::stoi(v);
+  } catch (...) {
+    return default_value;
+  }
+}
+
+struct TempFileGuard {
+  std::string path;
+  explicit TempFileGuard(std::string p) : path(std::move(p)) {}
+  ~TempFileGuard() {
+    if (!path.empty()) std::remove(path.c_str());
+  }
+  TempFileGuard(const TempFileGuard&) = delete;
+  TempFileGuard& operator=(const TempFileGuard&) = delete;
+  TempFileGuard(TempFileGuard&& other) noexcept : path(std::move(other.path)) {
+    other.path.clear();
+  }
+  TempFileGuard& operator=(TempFileGuard&& other) noexcept {
+    if (this != &other) {
+      if (!path.empty()) std::remove(path.c_str());
+      path = std::move(other.path);
+      other.path.clear();
+    }
+    return *this;
+  }
+};
+
+std::optional<std::pair<TempFileGuard, std::string>> create_temp_file() {
+  // NOTE: mkstemp creates the file atomically with 0600 permissions.
+  char tmpl[] = "/tmp/maze_upload_XXXXXX";
+  int fd = ::mkstemp(tmpl);
+  if (fd == -1) return std::nullopt;
+  ::close(fd);
+  std::string filename = tmpl;
+  return std::make_pair(TempFileGuard(filename), filename);
+}
+
+bool is_in_bounds(const MazeInfo& maze, const std::pair<int, int>& p) {
+  const int rows = static_cast<int>(maze.downWall.size());
+  const int cols = rows > 0 ? static_cast<int>(maze.downWall[0].size()) : 0;
+  return p.first >= 0 && p.second >= 0 && p.first < rows && p.second < cols;
+}
+
+}  // namespace
 
 void to_json(json& j, const MazeInfo& m) {
   j = json{{"rows", m.downWall.size()},
@@ -30,11 +95,21 @@ void from_json(const json& j, std::pair<int, int>& p) {
 void WebServer::Run() {
   httplib::Server svr;
 
+  // DoS protection: limit request body size (covers JSON and multipart payloads).
+  constexpr size_t kMaxPayloadBytes = 2 * 1024 * 1024;  // 2 MiB
+  svr.set_payload_max_length(kMaxPayloadBytes);
+
+  const std::string cors_origin =
+      get_env_or("MAZE_CORS_ORIGIN", "http://localhost:3000");
+
   auto cors_handler = [&](const httplib::Request& /*req*/,
                           httplib::Response& res) {
-    res.set_header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.set_header("Access-Control-Allow-Origin", cors_origin);
+    res.set_header("Vary", "Origin");
     res.set_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-    res.set_header("Access-Control-Allow-Headers", "Content-Type");
+    res.set_header("Access-Control-Allow-Headers",
+                   "Content-Type, Authorization");
+    res.set_header("Access-Control-Max-Age", "600");
     return httplib::Server::HandlerResponse::Unhandled;
   };
 
@@ -59,8 +134,26 @@ void WebServer::Run() {
     }
     const auto& file = req.form.get_file("maze_file");
 
-    const std::string temp_filename = "temp_maze_upload.txt";
-    std::ofstream temp_file(temp_filename);
+    if (file.content.size() > kMaxPayloadBytes) {
+      json error_response = {{"error", "Файл слишком большой."}};
+      res.status = 413;
+      res.set_content(error_response.dump(), "application/json");
+      return;
+    }
+
+    auto tmp = create_temp_file();
+    if (!tmp.has_value()) {
+      json error_response = {
+          {"error",
+           std::string("Внутренняя ошибка сервера: temp file: ") +
+               std::strerror(errno)}};
+      res.status = 500;
+      res.set_content(error_response.dump(), "application/json");
+      return;
+    }
+    auto& [guard, temp_filename] = *tmp;
+
+    std::ofstream temp_file(temp_filename, std::ios::binary);
     if (!temp_file) {
       json error_response = {
           {"error",
@@ -81,8 +174,6 @@ void WebServer::Run() {
       res.set_content(error_response.dump(), "application/json");
       return;
     }
-
-    std::remove(temp_filename.c_str());
 
     auto maze = std::get<MazeInfo>(game.get()->getGameInfo());
 
@@ -141,12 +232,27 @@ void WebServer::Run() {
   svr.Post("/api/maze/solve",
            [&](const httplib::Request& req, httplib::Response& res) {
              try {
+               if (req.body.size() > kMaxPayloadBytes) {
+                 json error_response = {{"error", "Запрос слишком большой."}};
+                 res.status = 413;
+                 res.set_content(error_response.dump(), "application/json");
+                 return;
+               }
                json body = json::parse(req.body);
 
                std::pair<int, int> start;
                from_json(body.at("start"), start);
                std::pair<int, int> end;
                from_json(body.at("end"), end);
+
+               // Validate bounds against current maze (avoid invalid indices).
+               auto maze = std::get<MazeInfo>(game.get()->getGameInfo());
+               if (!is_in_bounds(maze, start) || !is_in_bounds(maze, end)) {
+                 json error_response = {{"error", "Точки вне границ лабиринта."}};
+                 res.status = 400;
+                 res.set_content(error_response.dump(), "application/json");
+                 return;
+               }
 
                auto path = game.get()->getPath(start, end);
 
@@ -165,11 +271,17 @@ void WebServer::Run() {
                                                     std::string(e.what())}};
                res.status = 400;
                res.set_content(error_response.dump(), "application/json");
+             } catch (const std::exception& e) {
+               json error_response = {
+                   {"error", "Внутренняя ошибка обработки запроса."}};
+               res.status = 500;
+               res.set_content(error_response.dump(), "application/json");
              }
            });
 
-  const std::string host = "0.0.0.0";
-  const int port = 8080;
+  // Safer default: bind only on localhost. Override via env if needed.
+  const std::string host = get_env_or("MAZE_SERVER_HOST", "127.0.0.1");
+  const int port = get_env_int_or("MAZE_SERVER_PORT", 8080);
   std::cout << "Starting C++ web server on http://" << host << ":" << port
             << std::endl;
   if (!svr.listen(host.c_str(), port)) {
