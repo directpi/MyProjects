@@ -1,0 +1,1366 @@
+{
+	"info": {
+		"_postman_id": "140aa329-8da8-4028-a65c-3e8deadd8b0d",
+		"name": "E-Commerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43270600"
+	},
+	"item": [
+		{
+			"name": "🔓 Public Endpoints",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/health",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Version Info",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/version",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "App Info",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/info",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger UI",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/swagger/index.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"swagger",
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "👥 Clients",
+			"item": [
+				{
+					"name": "Get All Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clients",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Client",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", () => pm.response.to.have.status(201));\r",
+									"const clientId = pm.response.json().id;\r",
+									"const addressId = pm.response.json().addressId;\r",
+									"pm.collectionVariables.set(\"new_client_id\", clientId);\r",
+									"pm.collectionVariables.set(\"new_client_address_id\", addressId);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Тест\",\r\n  \"lastName\": \"Тестов\",\r\n  \"birthDate\": \"2000-01-01\",\r\n  \"gender\": \"MALE\",\r\n  \"addressId\": \"44444444-4444-4444-4444-444444444441\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clients",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Client by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clients/{{new_client_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients",
+								"{{new_client_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Clients with Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clients?limit=10&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Clients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clients/search?firstName=Иван&lastName=Иванов",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients",
+								"search"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Иван"
+								},
+								{
+									"key": "lastName",
+									"value": "Иванов"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client Address",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{new_client_address_id}}\",\r\n  \"country\": \"Россия\",\r\n  \"city\": \"Москва\",\r\n  \"street\": \"ул. Новая, д. 15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/clients/{{new_client_id}}/address",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients",
+								"{{new_client_id}}",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/clients/{{new_client_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"clients",
+								"{{new_client_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🛒 Products",
+			"item": [
+				{
+					"name": "Get Available Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/available",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", () => pm.response.to.have.status(201));\r",
+									"const productId = pm.response.json().id;\r",
+									"pm.collectionVariables.set(\"new_product_id\", productId);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Холодильник Samsung TEST3\",\r\n  \"category\": \"REFRIGERATORS\",\r\n  \"price\": 59999.99,\r\n  \"availableStock\": 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Проверим, что переменная существует\r",
+									"if (!pm.collectionVariables.get(\"new_product_id\")) {\r",
+									"    pm.test(\"Warning: new_product_id not set\", function() {\r",
+									"        pm.expect.fail(\"Сначала выполните Create New Product чтобы получить new_product_id\");\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}/products/{{new_product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"{{new_product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrease Product Stock",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products/{{new_product_id}}/stock/decrease",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"{{new_product_id}}",
+								"stock",
+								"decrease"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Increase Product Stock",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/products/{{new_product_id}}/stock/increase",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"{{new_product_id}}",
+								"stock",
+								"increase"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current Stock",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Проверим, что переменная существует\r",
+									"if (!pm.collectionVariables.get(\"new_product_id\")) {\r",
+									"    pm.test(\"Warning: new_product_id not set\", function() {\r",
+									"        pm.expect.fail(\"Сначала выполните Create New Product чтобы получить new_product_id\");\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/{{new_product_id}}/stock",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"{{new_product_id}}",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Проверим, что переменная существует\r",
+									"if (!pm.collectionVariables.get(\"new_product_id\")) {\r",
+									"    pm.test(\"Warning: new_product_id not set\", function() {\r",
+									"        pm.expect.fail(\"Сначала выполните Create New Product чтобы получить new_product_id\");\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверяем статус ответа\r",
+									"if (pm.response.code === 204) {\r",
+									"    // Успешное удаление (204 No Content)\r",
+									"    console.log(\"✅ Товар успешно удален\");\r",
+									"    \r",
+									"    // Очищаем переменную new_product_id\r",
+									"    pm.collectionVariables.unset(\"new_product_id\");\r",
+									"    console.log(\"🔄 Переменная new_product_id очищена\");\r",
+									"    \r",
+									"}  else {\r",
+									"    // Неожиданный статус\r",
+									"    console.warn(\"⚠️ Ошибка:\", pm.response.code);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/products/{{new_product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"{{new_product_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🏢Suppliers",
+			"item": [
+				{
+					"name": "Get All Suppliers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/suppliers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Supplier",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status 201\", () => pm.response.to.have.status(201));\r",
+									"const supplierId = pm.response.json().id;\r",
+									"pm.collectionVariables.set(\"new_supplier_id\", supplierId);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ТехноПоставка ООО\",\r\n  \"addressId\": \"{{supplier_address_id}}\",\r\n  \"phoneNumber\": \"+7-495-123-45-67\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/suppliers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Supplier by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Проверим, что переменная существует\r",
+									"if (!pm.collectionVariables.get(\"new_supplier_id\")) {\r",
+									"    pm.test(\"Warning: new_supplier_id not set\", function() {\r",
+									"        pm.expect.fail(\"Сначала выполните Create New Supplier чтобы получить new_supplier_id\");\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/suppliers/{{new_supplier_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suppliers",
+								"{{new_supplier_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Supplier Address",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{supplier_address_id}}\",\r\n  \"country\": \"Россия\",\r\n  \"city\": \"Санкт-Петербург\",\r\n  \"street\": \"Невский проспект, д. 100\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/suppliers/{{new_supplier_id}}/address",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suppliers",
+								"{{new_supplier_id}}",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Supplier",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Проверим, что переменная существует\r",
+									"if (!pm.collectionVariables.get(\"new_supplier_id\")) {\r",
+									"    pm.test(\"Warning: new_supplier_id not set\", function() {\r",
+									"        pm.expect.fail(\"Сначала выполните Create New Supplier чтобы получить new_supplier_id\");\r",
+									"    });\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверяем статус ответа\r",
+									"if (pm.response.code === 204) {\r",
+									"    // Успешное удаление (204 No Content)\r",
+									"    console.log(\"✅ Поставщик успешно удален\");\r",
+									"    \r",
+									"    // Очищаем переменную new_product_id\r",
+									"    pm.collectionVariables.unset(\"new_supplier_id\");\r",
+									"    console.log(\"🔄 Переменная new_supplier_id очищена\");\r",
+									"    \r",
+									"}  else {\r",
+									"    // Неожиданный статус\r",
+									"    console.warn(\"⚠️ Ошибка:\", pm.response.code);\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/suppliers/{{new_supplier_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suppliers",
+								"{{new_supplier_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\n```\nУправление поставщиками\nТестирование CRUD операций для поставщиков\nВсе запросы требуют Basic Auth (user:user123)\n\n ```\n\nEndFragment"
+		},
+		{
+			"name": "🖼️ Images",
+			"item": [
+				{
+					"name": "Upload Image",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статуса\r",
+									"pm.test(\"Status 201 Created\", function() {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"// Проверка структуры ответа\r",
+									"pm.test(\"Response has image data\", function() {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"id\");\r",
+									"    pm.expect(jsonData).to.have.property(\"fileName\");\r",
+									"    pm.expect(jsonData).to.have.property(\"size\");\r",
+									"    pm.expect(jsonData).to.have.property(\"contentType\");\r",
+									"});\r",
+									"\r",
+									"// Сохраняем ID созданного изображения\r",
+									"if (pm.response.code === 201) {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.id) {\r",
+									"        pm.collectionVariables.set(\"existing_image_id\", jsonData.id);\r",
+									"        console.log(\"💾 Сохранен existing_image_id:\", jsonData.id);\r",
+									"    }\r",
+									"\r",
+									"    // Сохраняем ID товара (если он был привязан)\r",
+									"    if (jsonData.productId) {\r",
+									"        pm.collectionVariables.set(\"existing_product_id\", jsonData.productId);\r",
+									"        pm.collectionVariables.set(\"image_product_id\", jsonData.productId);\r",
+									"        console.log(\"💾 Сохранен existing_product_id:\", jsonData.productId);\r",
+									"    } else {\r",
+									"        console.log(\"⚠️ Изображение создано без привязки к товару\");\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "postman-cloud:///1f0f63a0-534f-4c60-ab3b-b6ba5e32901c"
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/images?productId={{existing_product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "{{existing_product_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image by ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"// Проверяем что есть изображение\r",
+									"if (!pm.collectionVariables.get(\"existing_image_id\")) {\r",
+									"    console.error(\"❌ Нет изображения для получения!\");\r",
+									"    \r",
+									"    // Используем существующее из data.sql если есть\r",
+									"    pm.collectionVariables.set(\"existing_image_id\", \"eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee1\");\r",
+									"    console.log(\"🔄 Используем тестовое изображение из data.sql\");\r",
+									"}\r",
+									"\r",
+									"console.log(\"🔍 Получаем изображение ID:\", pm.collectionVariables.get(\"existing_image_id\"));"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статуса\r",
+									"pm.test(\"Status 200 OK\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Проверка заголовков\r",
+									"pm.test(\"Has image headers\", function() {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"    pm.response.to.have.header(\"Content-Disposition\");\r",
+									"    \r",
+									"    var contentType = pm.response.headers.get(\"Content-Type\");\r",
+									"    pm.expect(contentType).to.include(\"application/octet-stream\");\r",
+									"});\r",
+									"\r",
+									"// Проверка что это бинарные данные\r",
+									"pm.test(\"Response is binary\", function() {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.not.include(\"application/json\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/images/{{existing_image_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"{{existing_image_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Image by Product ID",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"=== Начало выполнения запроса ===\");\r",
+									"\r",
+									"// 1. Проверяем URL и переменные\r",
+									"console.log(\"Base URL:\", pm.collectionVariables.get(\"base_url\"));\r",
+									"console.log(\"Existing Product ID до проверки:\", pm.collectionVariables.get(\"existing_product_id\"));\r",
+									"\r",
+									"// 2. Если нет existing_product_id, устанавливаем ДЕЙСТВИТЕЛЬНЫЙ товар с изображением\r",
+									"if (!pm.collectionVariables.get(\"existing_product_id\")) {\r",
+									"    console.warn(\"⚠️ existing_product_id не установлен\");\r",
+									"    \r",
+									"    // Товары которые точно есть в data.sql и должны иметь изображения\r",
+									"    const productsFromDataSQL = [\r",
+									"        \"dddddddd-dddd-dddd-dddd-ddddddddddd1\", // Холодильник Samsung (должен иметь изображение)\r",
+									"        \"dddddddd-dddd-dddd-dddd-ddddddddddd2\", // Холодильник LG\r",
+									"        \"dddddddd-dddd-dddd-dddd-ddddddddddd7\"  // Стиральная машина LG\r",
+									"    ];\r",
+									"    \r",
+									"    pm.collectionVariables.set(\"existing_product_id\", productsFromDataSQL[0]);\r",
+									"    console.log(\"🔄 Установлен existing_product_id из data.sql:\", productsFromDataSQL[0]);\r",
+									"}\r",
+									"\r",
+									"// 3. Проверяем что это валидный UUID\r",
+									"const productId = pm.collectionVariables.get(\"existing_product_id\");\r",
+									"const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;\r",
+									"\r",
+									"if (!uuidRegex.test(productId)) {\r",
+									"    console.error(\"❌ НЕВЕРНЫЙ UUID формат:\", productId);\r",
+									"    \r",
+									"    // Автоматически исправляем\r",
+									"    const validProductId = \"dddddddd-dddd-dddd-dddd-ddddddddddd1\";\r",
+									"    pm.collectionVariables.set(\"existing_product_id\", validProductId);\r",
+									"    console.log(\"🔄 Исправлен на валидный UUID:\", validProductId);\r",
+									"}\r",
+									"\r",
+									"// 4. Устанавливаем image_product_id\r",
+									"pm.collectionVariables.set(\"image_product_id\", pm.collectionVariables.get(\"existing_product_id\"));\r",
+									"\r",
+									"// 5. Выводим финальный URL для отладки\r",
+									"const finalUrl = pm.collectionVariables.get(\"base_url\") + \r",
+									"                 \"/images/product/\" + \r",
+									"                 pm.collectionVariables.get(\"existing_product_id\");\r",
+									"console.log(\"🌐 Финальный URL запроса:\", finalUrl);\r",
+									"console.log(\"📋 existing_product_id:\", pm.collectionVariables.get(\"existing_product_id\"));\r",
+									"console.log(\"📋 image_product_id:\", pm.collectionVariables.get(\"image_product_id\"));\r",
+									"console.log(\"=== Конец pre-script ===\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статуса\r",
+									"pm.test(\"Status 200 OK\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Проверка заголовков\r",
+									"pm.test(\"Has image headers\", function() {\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"    pm.response.to.have.header(\"Content-Disposition\");\r",
+									"    \r",
+									"    var contentType = pm.response.headers.get(\"Content-Type\");\r",
+									"    pm.expect(contentType).to.include(\"application/octet-stream\");\r",
+									"});\r",
+									"\r",
+									"// Проверка что это бинарные данные\r",
+									"pm.test(\"Response is binary\", function() {\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.not.include(\"application/json\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/images/product/{{existing_product_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"product",
+								"{{existing_product_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Replace Image",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"=== Замена изображения ===\");\r",
+									"\r",
+									"// 1. Проверяем есть ли изображение для замены\r",
+									"if (!pm.collectionVariables.get(\"last_image_id\")) {\r",
+									"    console.error(\"❌ Нет изображения для замены!\");\r",
+									"    \r",
+									"    // Если нет last_image_id, используем существующее из data.sql\r",
+									"    const existingImageId = \"eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee1\";\r",
+									"    pm.collectionVariables.set(\"last_image_id\", existingImageId);\r",
+									"    console.log(\"🔄 Используем изображение из data.sql:\", existingImageId);\r",
+									"} else {\r",
+									"    console.log(\"🔄 Заменяем изображение ID:\", pm.collectionVariables.get(\"last_image_id\"));\r",
+									"}\r",
+									"\r",
+									"// 2. Проверяем что выбран файл для замены\r",
+									"console.log(\"💡 Выбери новый файл в Body → form-data → file\");"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(\"=== Результат замены изображения ===\");\r",
+									"\r",
+									"// Проверка статуса (204 No Content)\r",
+									"pm.test(\"Status 204 No Content\", function() {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"// Если успешно, логируем\r",
+									"if (pm.response.code === 204) {\r",
+									"    console.log(\"✅ Изображение успешно заменено\");\r",
+									"    console.log(\"🆔 ID изображения:\", pm.collectionVariables.get(\"last_image_id\"));\r",
+									"    \r",
+									"    // Сохраняем информацию о замене для отладки\r",
+									"    pm.collectionVariables.set(\"last_image_replaced\", new Date().toISOString());\r",
+									"    console.log(\"🕐 Время замены:\", pm.collectionVariables.get(\"last_image_replaced\"));\r",
+									"}\r",
+									"\r",
+									"// Если ошибка\r",
+									"if (pm.response.code !== 204) {\r",
+									"    console.error(\"❌ Ошибка замены изображения, статус:\", pm.response.code);\r",
+									"    console.log(\"Тело ответа:\", pm.response.text());\r",
+									"    \r",
+									"    // Проверяем типичные ошибки\r",
+									"    if (pm.response.code === 404) {\r",
+									"        console.log(\"💡 Возможно изображение было удалено или не существует\");\r",
+									"    } else if (pm.response.code === 400) {\r",
+									"        console.log(\"💡 Проверьте формат файла (должен быть PNG/JPEG/GIF, < 10MB)\");\r",
+									"    }\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "postman-cloud:///1f0f6c67-aa27-44f0-9c4d-42e4a782d866"
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/images/{{existing_image_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"{{existing_image_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Image",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(\"=== Удаление изображения ===\");\r",
+									"\r",
+									"// 1. Проверяем есть ли изображение для удаления\r",
+									"if (!pm.collectionVariables.get(\"last_image_id\")) {\r",
+									"    console.error(\"❌ Нет изображения для удаления!\");\r",
+									"    \r",
+									"    // Проверяем есть ли другие ID изображений\r",
+									"    if (pm.collectionVariables.get(\"existing_image_id\")) {\r",
+									"        pm.collectionVariables.set(\"last_image_id\", \r",
+									"            pm.collectionVariables.get(\"existing_image_id\"));\r",
+									"        console.log(\"🔄 Используем existing_image_id:\", pm.collectionVariables.get(\"last_image_id\"));\r",
+									"    } else {\r",
+									"        // Используем тестовое изображение из data.sql\r",
+									"        const testImageId = \"eeeeeeee-eeee-eeee-eeee-eeeeeeeeeee1\";\r",
+									"        pm.collectionVariables.set(\"last_image_id\", testImageId);\r",
+									"        console.log(\"🔄 Используем тестовое изображение из data.sql:\", testImageId);\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// 2. Логируем что будем удалять\r",
+									"console.log(\"🗑️  Удаляем изображение ID:\", pm.collectionVariables.get(\"last_image_id\"));\r",
+									"\r",
+									"// 3. Сохраняем ID для проверки после удаления\r",
+									"pm.collectionVariables.set(\"deleted_image_id\", pm.collectionVariables.get(\"last_image_id\"));\r",
+									"\r",
+									"// 4. Проверяем URL\r",
+									"const url = pm.collectionVariables.get(\"base_url\") + \"/images/\" + \r",
+									"            pm.collectionVariables.get(\"last_image_id\");\r",
+									"console.log(\"🌐 URL запроса:\", url);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статуса\r",
+									"pm.test(\"Status 204 No Content\", function() {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"// Очищаем переменную после удаленияconsole.log(\"=== Результат удаления изображения ===\");\r",
+									"\r",
+									"// 1. Проверка статуса (204 No Content)\r",
+									"pm.test(\"Status 204 No Content\", function() {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"// 2. Логируем результат\r",
+									"if (pm.response.code === 204) {\r",
+									"    console.log(\"✅ Изображение успешно удалено\");\r",
+									"    console.log(\"🆔 Удалено изображение ID:\", pm.collectionVariables.get(\"deleted_image_id\"));\r",
+									"    \r",
+									"    // 3. Очищаем переменные\r",
+									"    pm.collectionVariables.unset(\"last_image_id\");\r",
+									"    console.log(\"🔄 Переменная last_image_id очищена\");\r",
+									"    \r",
+									"    // 4. Сохраняем время удаления\r",
+									"    pm.collectionVariables.set(\"last_image_deleted\", new Date().toISOString());\r",
+									"    console.log(\"🕐 Время удаления:\", pm.collectionVariables.get(\"last_image_deleted\"));\r",
+									"    \r",
+									"    // 5. Проверяем что товар больше не имеет изображения\r",
+									"    if (pm.collectionVariables.get(\"existing_product_id\")) {\r",
+									"        console.log(\"💡 Проверь что товар\", pm.collectionVariables.get(\"existing_product_id\"), \r",
+									"                   \"больше не имеет изображения\");\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"// 6. Обработка ошибок\r",
+									"if (pm.response.code === 404) {\r",
+									"    console.warn(\"⚠️ Изображение не найдено (возможно уже удалено)\");\r",
+									"    console.log(\"ID:\", pm.collectionVariables.get(\"last_image_id\"));\r",
+									"    \r",
+									"    // Очищаем переменную так как изображения нет\r",
+									"    pm.collectionVariables.unset(\"last_image_id\");\r",
+									"}\r",
+									"\r",
+									"if (pm.response.code !== 204 && pm.response.code !== 404) {\r",
+									"    console.error(\"❌ Неожиданная ошибка при удалении, статус:\", pm.response.code);\r",
+									"    console.log(\"Тело ответа:\", pm.response.text());\r",
+									"}\r",
+									"if (pm.response.code === 204) {\r",
+									"    pm.collectionVariables.unset(\"last_image_id\");\r",
+									"    console.log(\"🗑️ Изображение удалено, переменная очищена\");\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/images/{{existing_image_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"images",
+								"{{existing_image_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "StartFragment\n\n```\nУправление поставщиками\nТестирование CRUD операций для поставщиков\nВсе запросы требуют Basic Auth (user:user123)\n\n ```\n\nEndFragment"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "user123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "user",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api/v1"
+		},
+		{
+			"key": "username",
+			"value": ""
+		},
+		{
+			"key": "password",
+			"value": ""
+		},
+		{
+			"key": "new_client_id",
+			"value": ""
+		},
+		{
+			"key": "new_client_address_id",
+			"value": ""
+		},
+		{
+			"key": "supplier_address_id",
+			"value": ""
+		},
+		{
+			"key": "existing_product_id",
+			"value": ""
+		},
+		{
+			"key": "existing_image_id",
+			"value": ""
+		},
+		{
+			"key": "image_product_id",
+			"value": ""
+		},
+		{
+			"key": "last_image_replaced",
+			"value": ""
+		},
+		{
+			"key": "deleted_image_id",
+			"value": ""
+		},
+		{
+			"key": "last_image_deleted",
+			"value": ""
+		}
+	]
+}

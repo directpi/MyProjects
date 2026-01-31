@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce API - Главная страница</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .info-section {
+            margin-bottom: 30px;
+        }
+        
+        .info-section h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .endpoint-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .endpoint-list li {
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s;
+        }
+        
+        .endpoint-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .endpoint-list a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .endpoint-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .endpoint-description {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            color: #999;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🛍️ E-Commerce API</h1>
+        <p class="subtitle">Веб-сервер и Reverse Proxy на базе Nginx</p>
+        
+        <div class="image-container">
+            <img src="/image.png" alt="E-Commerce Logo" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="info-section">
+            <h2>📡 Доступные Endpoints</h2>
+            <ul class="endpoint-list">
+                <li>
+                    <a href="/api/v1" target="_blank">/api/v1</a>
+                    <div class="endpoint-description">Swagger UI - документация API</div>
+                </li>
+                <li>
+                    <a href="/api/v1/health" target="_blank">/api/v1/health</a>
+                    <div class="endpoint-description">Проверка состояния сервиса</div>
+                </li>
+                <li>
+                    <a href="/admin" target="_blank">/admin</a>
+                    <div class="endpoint-description">pgAdmin - GUI для управления PostgreSQL</div>
+                </li>
+                <li>
+                    <a href="/status" target="_blank">/status</a>
+                    <div class="endpoint-description">Статус Nginx сервера</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2>🔧 Технические детали</h2>
+            <ul class="endpoint-list">
+                <li>
+                    <strong>Backend серверы:</strong> 3 инстанса (порты 8080, 8081, 8082)
+                    <div class="endpoint-description">Балансировка нагрузки 2:1:1 для GET запросов</div>
+                </li>
+                <li>
+                    <strong>База данных:</strong> PostgreSQL (myshop_db)
+                    <div class="endpoint-description">Read-only доступ для инстансов 8081 и 8082</div>
+                </li>
+                <li>
+                    <strong>Кеширование:</strong> Включено для статических файлов
+                    <div class="endpoint-description">Исключение для API endpoints</div>
+                </li>
+                <li>
+                    <strong>Gzip сжатие:</strong> Включено
+                    <div class="endpoint-description">Исключение медиа-типов (jpeg, png, gif, webp, video, audio)</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Проект: BE3_Nginx_Pro | Автор: Directpi | 2026 год</p>
+        </div>
+    </div>
+</body>
+</html>

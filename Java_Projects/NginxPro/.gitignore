@@ -44,25 +44,24 @@ bin/
 logs/
 server.log
 app.log
-/docs
 
-# Environment/config files
+# Environment/config files (креды не коммитить!)
 .env
+.env.*
 *.env
+!example.env
 *.properties
 !gradle.properties
 !src/main/resources/application.properties
-!example.env 
 
 # Project-specific
-/src/APIFromSpec/.idea/
-/src/APIFromSpec/.cursorrules
-/src/APIFromSpec/TEST_SUMMARY.md
-/src/APIFromSpec/first_prompt
-/src/APIFromSpec/docs/
+.cursorrules
+docs/
 
 # Binary/executable files
+# Игнорируем только файлы с расширением .d, но не директории (например, conf.d/)
 *.d
+!*.d/
 *.o
 *.ko
 *.obj
@@ -101,5 +100,4 @@ app.log
 *.avi
 *.jpg
 *.png
-
-.cursorrules
+!image.png
